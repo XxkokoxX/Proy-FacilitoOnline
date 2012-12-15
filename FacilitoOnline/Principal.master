@@ -1,0 +1,189 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Principal.master.cs" Inherits="Principal" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <!-- Estilos plantilla principal -->
+    <link rel="stylesheet" type="text/css" href="estilos/Plantilla/styles.css" />         
+    <!--[if IE]>
+        <style type="text/css">
+            .clear {
+                zoom: 1;
+                display: block;
+            }
+            </style>        
+    <![endif]-->
+    <script type="text/javascript" src="estilos/Plantilla/jquery.min.js"></script>
+    <script type="text/javascript" src="estilos/Plantilla/jquery.scrollTo-1.4.2/jquery.scrollTo-min.js"></script>
+    <script type="text/javascript" src="estilos/Plantilla/script.js"></script>
+
+    <!-- Estilos Menú -->
+    <style type="text/css">
+    <!--
+    @import url(http://fonts.googleapis.com/css?family=Lobster);
+    body {margin:0; padding:0; /*background:#ddd;*/}
+    #nav{position:relative;  /*background:#eee*/background:#FF8000; /*background: url('estilos/Plantilla/img/barra_nar.png')*/; padding:0; font-family:'Lobster', Arial, Helvetica, sans-serif; font-size:18px; -moz-border-radius:5px; -khtml-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; -moz-box-shadow:2px 2px 3px #ccc; -webkit-box-shadow:2px 2px 3px #ccc; box-shadow:2px 2px 3px #ccc;}
+    #nav .clear{clear:both;}
+    #nav ul{padding:0 0 0 5px; margin:0; list-style:none;}
+    #nav li{float:left; margin:5px 10px 5px 0; background:#eee; -moz-border-radius:5px; -khtml-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;}
+    #nav li a{text-decoration:none; color:#9e0039; display:block; padding:10px 15px;}
+    -->
+    </style>
+    <script src="estilos/MenuJQuery/jquery.min.js" type="text/javascript"></script>
+    <script src="estilos/MenuJQuery/jquery-ui.min.js" type="text/javascript"></script>
+    <!-- rounded corners for IE -->
+    <script src="estilos/MenuJQuery/DD_roundies_0.0.2a-min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        DD_roundies.addRule('#nav', '5px');
+        DD_roundies.addRule('#nav li', '5px');
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var animSpeed = 450; //fade speed
+            var hoverTextColor = "#fff"; //text color on mouse over
+            var hoverBackgroundColor = "#9e0039"; //background color on mouse over
+            var textColor = $("#nav li a").css("color");
+            var backgroundColor = $("#nav li").css("background-color");
+            //text color animation
+            $("#nav li a").hover(function () {
+                $(this).stop().animate({ color: hoverTextColor }, animSpeed);
+            }, function () {
+                $(this).stop().animate({ color: textColor }, animSpeed);
+            });
+            //background color animation
+            $("#nav li").hover(function () {
+                $(this).stop().animate({ backgroundColor: hoverBackgroundColor }, animSpeed);
+            }, function () {
+                $(this).stop().animate({ backgroundColor: backgroundColor }, animSpeed);
+            });
+        });
+    </script>
+    <!-- Estilos botones -->
+    <link href="estilos/Botones/Modelo01/estilo.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="section" id="page"> <!-- Defining the #page section with the section tag -->
+            <div class="header"> <!-- Defining the header section of the page with the appropriate tag -->
+                <br /><br /><br />
+                <table style="width: 100%; background-image: url('img/Banners/Banner05.jpg'); height: 90px; background-repeat: no-repeat;">
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td colspan="5">
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td colspan="2">
+                            <asp:LoginView ID="LoginView1" runat="server">
+                                <AnonymousTemplate>
+                                    [ <a href="Login_Usuario.aspx" ID="HeadLoginStatus" runat="server">Ingresa</a> ]
+                                </AnonymousTemplate>
+                                <LoggedInTemplate>
+                                    Usuario <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!<br />
+                                    [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Cerrar sesión" LogoutPageUrl="Inicio.aspx"/> ]
+                                </LoggedInTemplate>
+                            </asp:LoginView> | <a href="RegistrarUsuario.aspx">Registrate</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td width="45%" colspan="5">
+                            &nbsp;
+                            <asp:TextBox ID="txtParametros" runat="server" Width="400px">Buscar por especialidad, ubicación, tipo o precio de restaurante</asp:TextBox>
+                        </td>
+                        <td width="15%">
+                            &nbsp;
+                            <asp:Button ID="btnBuscar" runat="server" Text="Buscar" Width="100px" 
+                                onclick="btnBuscar_Click" CssClass="orange button" />
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <div id="nav">
+	                <ul>
+    	                <li><a href="Inicio.aspx">Inicio</a></li>
+                        <li style="background-color: rgb(238, 238, 238);"><a href="Restaurantes.aspx" style="color: rgb(158, 0, 57);">Restaurantes</a></li>
+                        <li style="background-color: rgb(238, 238, 238);"><a href="#" style="color: rgb(158, 0, 57);">Promociones</a></li>
+                        <li style="background-color: rgb(238, 238, 238);"><a href="#" style="color: rgb(158, 0, 57);">Mapa de Restaurantes</a></li>
+                        <li style="background-color: rgb(238, 238, 238);"><a href="#" style="color: rgb(158, 0, 57);">Lo Nuevo</a></li>
+                        <li style="background-color: rgb(238, 238, 238);"><a href="#" style="color: rgb(158, 0, 57);">¿Qué es GPS Restaurantes?</a></li>
+                        <li style="background-color: rgb(238, 238, 238);"><a href="#" style="color: rgb(158, 0, 57);">Mi Cuenta</a></li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="section" id="articles"> <!-- A new section with the articles -->
+                <div class="article">
+                    <table style="width: 100%;">
+                        <tr>
+                            <td width="100%" valign="top">
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"> 
+                                </asp:ContentPlaceHolder>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+        </div>    
+	    </div> <!-- Closing the #page section -->
+        <div class="footer"> <!-- Marking the footer section -->
+            <div id="dashboard-footer">
+                    <div class="clearfix " id="dashboard-footer-inner">
+                        <div id="footer-up-links">
+	                        <strong><a target="_BLANK" href="#">Sobre FacilitoOnline</a></strong> ·
+	                        <strong><a target="_BLANK" href="#">Ayuda</a></strong> ·
+	                        <strong><a target="_BLANK" href="#">Blog</a></strong> ·
+	                        <strong><a target="_BLANK" href="#">Contacto</a></strong> ·
+	                        <a target="_BLANK" href="#">Guía de convivencia</a> ·
+	                        <a target="_BLANK" href="#">Políticas de privacidad</a> ·
+	                        <a target="_BLANK" href="#">Términos de uso</a> ·
+	                        <a target="_BLANK" href="#">Preguntas frecuentes</a>
+                        </div>
+                        <div id="footer-down-links">
+	                        © 2012 FacilitoOnline ·
+	                        <a href="#">English</a> ·
+	                        <a href="#">Português</a>
+                        </div><br />
+                        <div>
+                            <a href="#" class="up">Subir</a>
+                            <a href="#" class="by">Equipo Proyecto Integrador</a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,3 @@
+Crear la base de datos FacilitoOnline y Ejecutar el buckup
+Abrir el proyecto y cambiar la conexión
+Prueben con admin / admin en iniciar sesión para usuarios
