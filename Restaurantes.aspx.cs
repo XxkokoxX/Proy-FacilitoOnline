@@ -29,4 +29,5 @@ public partial class Restaurantes : System.Web.UI.Page
         GridView1.DataSource = c.filtro1(txtRestaurante.Text);
         GridView1.DataBind();
     }
+
 }

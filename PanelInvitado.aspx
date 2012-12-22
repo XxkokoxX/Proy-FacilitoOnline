@@ -65,22 +65,13 @@
 
                                 <div class="dashboard-site-extra-config-item float-left ">
                                     <div class="dashboard-site-extra-config-item-title dashboard-extra-config-close-site ">
-                                        <a class=" open-bligoo-window-link " href="javascript:void(0)" data-method="windowSiteClose" data-name="windowsiteclose" data-parameters="{&#39;blogId&#39;:&#39;345969&#39;}" data-height="130" data-width="400" data-module="Shop">Gestionar Ofertas</a>
+                                        <a class=" open-bligoo-window-link " href="MantenimientoOfertas.aspx" data-method="windowSiteClose" data-name="windowsiteclose" data-parameters="{&#39;blogId&#39;:&#39;345969&#39;}" data-height="130" data-width="400" data-module="Shop">Gestionar Ofertas</a>
                                     </div>
                                     <div class="dashboard-site-extra-config-item-desc ">
                                         <p>Registrar, actualizar y eliminar ofertas.</p>
                                         <div class="dashboard-site-pro-badge  ">
                                             <a href="#" target="_BLANK"></a>
                                         </div>
-                                    </div>
-                                </div>
-
-                                <div class="dashboard-site-extra-config-item float-left ">
-                                    <div class="dashboard-site-extra-config-item-title dashboard-extra-config-google-apps ">
-                                        <a class=" open-bligoo-window-link " href="javascript:void(0)" data-method="windowGoogleApps" data-name="windowgoogleapps" data-parameters="{&#39;blogId&#39;:&#39;345969&#39;}" data-height="350" data-width="500" data-module="Shop">Gestionar Eventos</a>
-                                    </div>
-                                    <div class="dashboard-site-extra-config-item-desc ">
-                                        <p>registrar, actualizar y eliminar eventos.</p>
                                     </div>
                                 </div>
 

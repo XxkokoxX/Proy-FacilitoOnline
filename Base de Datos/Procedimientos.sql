@@ -266,7 +266,7 @@ FIN:
 GO
 
 -- PROCEDURE QUE ELIMINA CLIENTES
-ALTER PROCEDURE USP_ELIMINA_CLIENTES
+create PROCEDURE USP_ELIMINA_CLIENTES
 @MEMBRESIA VARCHAR(50)
 AS
 DELETE tb_cliente
@@ -358,7 +358,7 @@ AS
 	FIN3:
 GO
 
-alter PROCEDURE USP_LISTA_CLIENTES_Y_USUARIOS_SIN_PERMISOS
+create PROCEDURE USP_LISTA_CLIENTES_Y_USUARIOS_SIN_PERMISOS
 as
 select email,nombres+' '+apellidos as usuarios,descripcion from tb_usuario u join tb_tipo_usuario tu on u.tipoUsuario = tu.id_tipo_usuario
 where email not in (select usuario from tb_permiso_usuario)
@@ -497,6 +497,138 @@ create procedure USP_UBICARPRODUCTO
 as
 select * from tb_productos where nombre=@nom
 go
+
+
+
+
+/* SUCURSALES*/
+
+-- PROCEDURE QUE REGISTRA SUCURSAL
+create procedure USP_REGISTRAR_SUCURSAL
+@Sucur varchar (100),
+@descSucur varchar(200),
+@telefono varchar(20) ,
+@idDist char(6),
+@direccion varchar(100),
+@cliente varchar(50)
+as  
+insert into tb_sucursal(sucursal,desc_sucursal,telefono,id_distrito,direccion,cliente) 
+values (@Sucur,@descSucur, @telefono,@idDist, @direccion,@cliente)
+go
+
+-- PROCEDURE QUE ACTUALIZA SUCURSAL
+create procedure USP_ACTUALIZAR_SUCURSAL
+@id int,
+@Sucur varchar (100),
+@descSucur varchar(200),
+@telefono varchar(20) ,
+@idDist char(6),
+@direccion varchar(100)
+as
+update tb_sucursal set 
+sucursal=@sucur, 
+desc_sucursal = @descSucur, 
+telefono=@telefono,
+id_distrito = @idDist, 
+direccion = @direccion
+where id = @id
+go
+
+-- PROCEDURE QUE ELIMINA UN SUCURSAL
+Create procedure USP_ELIMINAR_SUCURSAL
+@id int
+as
+delete from tb_sucursal
+where id=@id
+go
+
+
+
+
+
+
+/* EVENTOS */
+
+-- PROCEDURE QUE REGISTRA EVENTOS
+create procedure USP_REGISTRAR_EVENTO  
+@evento varchar(100),
+@descripcion varchar(500),  
+@fecha_inicio datetime,  
+@fecha_fin datetime,
+@cliente varchar(50)
+as  
+insert into tb_eventos(evento,descripcion,fecha_inicio,fecha_fin,estado,cliente)
+values (@evento,@descripcion, @fecha_inicio, @fecha_fin, 1,@cliente)  
+go
+
+-- PROCEDURE QUE MODIFICAR UN EVENTO
+create procedure USP_ACTUALIZAR_EVENTO
+@id int,
+@evento varchar(100),
+@descripcion varchar(500),  
+@fecha_inicio datetime,  
+@fecha_fin datetime
+as
+update tb_eventos set 
+evento = @evento,
+descripcion = @descripcion, 
+fecha_inicio = @fecha_inicio, 
+fecha_fin = @fecha_fin
+where id = @id
+go
+
+-- PROCEDURE QUE ELIMINA UN EVENTO
+create procedure USP_ELIMINAR_EVENTO
+@id int
+as
+update tb_eventos set estado = 0
+where id = @id
+go
+
+
+
+
+
+/* OFERTAS */
+
+-- PROCEDURE QUE REGISTRA UNA OFERTA
+create procedure USP_REGISTRAR_OFERTA
+@oferta varchar(100),
+@descripcion varchar(500),
+@fecha_inicio datetime,
+@fecha_fin datetime,
+@cliente varchar(50)
+as
+insert into tb_ofertas(oferta,descripcion,fecha_inicio,fecha_fin,estado,cliente)
+values (@oferta,@descripcion, @fecha_inicio,@fecha_fin,1,@cliente)
+go
+
+-- PROCEDURE QUE MODIFICA UNA OFERTA
+create procedure USP_ACTUALIZAR_OFERTA
+@id int,
+@oferta varchar(100),
+@descripcion varchar(500),
+@fecha_inicio datetime,
+@fecha_fin datetime
+as
+update tb_ofertas 
+set 
+oferta = @oferta,
+descripcion = @descripcion, 
+fecha_inicio = @fecha_inicio, 
+fecha_fin = @fecha_fin
+where id = @id
+go
+
+-- PROCEDURE QUE ELEIMINA UNA OFERTA
+create procedure USP_ELIMINAR_OFERTA
+@id int
+as
+update tb_ofertas set estado = 0 where id = @id
+go
+
+
+
 
 
 /* CATALOGOS */

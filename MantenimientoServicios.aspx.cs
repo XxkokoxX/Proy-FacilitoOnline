@@ -81,6 +81,7 @@ public partial class MantenimientoUsuario : System.Web.UI.Page
     {
         try
         {
+            string usuario = Context.User.Identity.Name;
             string nombre = txtNombre.Text;
             int catego = cboCategoria.SelectedIndex + 1;
             int cantidad = int.Parse(txtCantidad.Text);
@@ -92,7 +93,7 @@ public partial class MantenimientoUsuario : System.Web.UI.Page
             {
                 byte[] imageBytes = FileUpload1.FileBytes;
 
-                lblMensaje.Text = p.InsertarProducto(nombre, catego, cantidad, precio, imageBytes, ruc);
+                lblMensaje.Text = p.InsertarProducto(nombre, catego, cantidad, precio, imageBytes, ruc,usuario);
 
                 GridView1.DataSource = p.listarProductos(txtRuc.Text);
                 GridView1.DataBind();

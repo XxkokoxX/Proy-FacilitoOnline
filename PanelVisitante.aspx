@@ -86,7 +86,7 @@
 
                                 <div class="dashboard-site-extra-config-item float-left ">
                                     <div class="dashboard-site-extra-config-item-title dashboard-extra-config-close-site ">
-                                        <a class=" open-bligoo-window-link " href="javascript:void(0)" data-method="windowSiteClose" data-name="windowsiteclose" data-parameters="{&#39;blogId&#39;:&#39;345969&#39;}" data-height="130" data-width="400" data-module="Shop">Consultar Reservas</a>
+                                        <a class=" open-bligoo-window-link " href="ConsultarReservas.aspx" data-method="windowSiteClose" data-name="windowsiteclose" data-parameters="{&#39;blogId&#39;:&#39;345969&#39;}" data-height="130" data-width="400" data-module="Shop">Consultar Reservas</a>
                                     </div>
                                     <div class="dashboard-site-extra-config-item-desc ">
                                         <p>Gestionar mi reservas realizadas en la aplicación.</p>

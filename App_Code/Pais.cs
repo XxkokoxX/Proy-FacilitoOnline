@@ -42,5 +42,23 @@ public class Pais
         return tb;
     }
 
+    public DataTable listarDistritos()
+    {
+        SqlDataAdapter da = new SqlDataAdapter("select * from distritos", cn.getCn);
+        DataTable tb = new DataTable();
+        da.Fill(tb);
+        return tb;
+    }
+
+    public DataTable listarDistritosxDepartamentos(string dept)
+    {
+        SqlDataAdapter da = new SqlDataAdapter("select distinct * from distritos d join provincias p " + 
+        "on d.provincia = p.idprovincia where departamento = @dept", cn.getCn);
+        da.SelectCommand.Parameters.Add("@dept", SqlDbType.Char).Value = dept;
+        DataTable tb = new DataTable();
+        da.Fill(tb);
+        return tb;
+    }
+
 }
 

@@ -16,6 +16,7 @@ public partial class MantenimientoUsuario : System.Web.UI.Page
     {
         try
         {
+            txtUsu.Text = Context.User.Identity.Name;
             if (!Page.IsPostBack)
             {
                 if (!Context.User.Identity.IsAuthenticated)
@@ -102,6 +103,7 @@ public partial class MantenimientoUsuario : System.Web.UI.Page
     {
         try
         {
+
             p.agregarCategoria(txtCategoria.Text);
             Listar();
 
@@ -117,4 +119,5 @@ public partial class MantenimientoUsuario : System.Web.UI.Page
             lblMensaje.Text = ex.Message;
         }
     }
+
 }

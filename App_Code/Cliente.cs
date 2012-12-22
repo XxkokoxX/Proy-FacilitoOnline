@@ -174,4 +174,23 @@ public class Cliente
         da.Fill(tb);
         return tb;
     }
+
+
+    public object buscarClientePorRazonSocial(string razonSocial)
+    {
+        SqlDataAdapter da = new SqlDataAdapter("select * from tb_cliente where razonSocial=@razon", cn.getCn);
+        da.SelectCommand.Parameters.Add("@razon",SqlDbType.VarChar).Value = razonSocial;
+        DataTable tb = new DataTable();
+        da.Fill(tb);
+        return tb;
+    }
+
+    public DataTable obtenerDireccionCliente(string razonSocial)
+    {
+        SqlDataAdapter da = new SqlDataAdapter("select calle,municipio,estado,pais from tb_cliente where razonSocial=@razon", cn.getCn);
+        da.SelectCommand.Parameters.Add("@razon", SqlDbType.VarChar).Value = razonSocial;
+        DataTable tb = new DataTable();
+        da.Fill(tb);
+        return tb;
+    }
 }

@@ -97,7 +97,7 @@
                             <img src="img/iconos/salir.png" alt="" />
                             <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="100px" 
                                 ForeColor="#FF3300" ToolTip="Click aquí para cancelar." 
-                                PostBackUrl="~/PanelSocio.aspx" />
+                                PostBackUrl="~/PanelSocio.aspx"  />
                         </td>
                     </tr>
                 </tbody>

@@ -21,7 +21,8 @@
             <td rowspan="15" valign="top">
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
                     Width="100%" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" 
-                    BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
+                    BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" 
+                    >
                     <Columns>
                         <asp:TemplateField ControlStyle-BorderStyle="None" FooterStyle-BorderStyle="None" HeaderStyle-BorderStyle="None" ItemStyle-BorderStyle="None" >
                             <HeaderTemplate>
@@ -44,14 +45,16 @@
                                     <tr>
                                         <td rowspan="2" width="10%">
                                             <div id="user-avatar">
-                                                <asp:Image ID="Image1" runat="server" Height="80px" 
-                                                    ImageUrl='<%# Eval("membresia", "img/avatar/{0}.jpg") %>' Width="80px" />
+                                                <a href="Restaurantes_detalle.aspx?m=<%# Eval("razonSocial") %>"><asp:Image ID="Image1" runat="server" Height="80px" 
+                                                    ImageUrl='<%# Eval("membresia", "img/avatar/{0}.jpg") %>' Width="80px" /></a>
                                             </div>
                                         </td>
                                         <td>
                                             &nbsp;</td>
                                         <td width="25%">
-                                            <asp:Label ID="lblRazonSocial" runat="server" Text='<%# Eval("razonSocial") %>'></asp:Label>
+                                            <a href="Restaurantes_detalle.aspx?m=<%# Eval("razonSocial") %>">
+                                            <asp:Label ID="lblRazonSocial" runat="server" Text='<%# Eval("razonSocial") %>' style="font-weight:bold;font-size:large"></asp:Label>
+                                            </a>
                                         </td>
                                         <td>
                                             &nbsp;</td>
@@ -86,8 +89,7 @@
                                             &nbsp;</td>
                                         <td>
                                             &nbsp;</td>
-                                        <td>
-                                            &nbsp;</td>
+                                        <td><a href="Restaurantes_detalle.aspx?m=<%# Eval("razonSocial") %>">Ver m&aacute;s</a></td>
                                     </tr>
                                 </table>
                             </ItemTemplate>
@@ -174,7 +176,7 @@
                 <table class="ic_container" width="100%">
                     <tr>
                         <td>
-                            <h4 <h4 style="background-color: #666666; color: #FFFFFF; font-size: large;">Ubicación</h4>
+                             <h4 style="background-color: #666666; color: #FFFFFF; font-size: large;">Ubicación</h4>
                         </td>
                     </tr>
                     <tr>

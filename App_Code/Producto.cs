@@ -130,7 +130,7 @@ public class Producto
         return tb;
     }
 
-    public String InsertarProducto(string nombre, int categoria, int cantidad, decimal precio, byte[] imagen, string ruc)
+    public String InsertarProducto(string nombre, int categoria, int cantidad, decimal precio, byte[] imagen, string ruc,string usu)
     {
         string msg = "";
 
@@ -143,6 +143,7 @@ public class Producto
         cmd.Parameters.Add("@precio", SqlDbType.Decimal).Value = precio;
         cmd.Parameters.Add("@imagen", SqlDbType.Image).Value = imagen;
         cmd.Parameters.Add("@ruc", SqlDbType.VarChar).Value = ruc;
+        cmd.Parameters.Add("@usuario", SqlDbType.VarChar).Value = usu;
 
         cn.getCn.Open();
 

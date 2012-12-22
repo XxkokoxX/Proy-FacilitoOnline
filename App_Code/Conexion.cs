@@ -11,7 +11,8 @@ public class Conexion
 
     public Conexion()
     {
-        cn = new SqlConnection("Server=XxkokoxX-VAIO\\SQLEXPRESS; Database=FACILITOONLINE; uid=i7exe; pwd=sql");
+       cn = new SqlConnection("Server=XxkokoxX-VAIO\\SQLEXPRESS; Database=FACILITOONLINE; uid=i7exe; pwd=sql");
+        
     }
 
     public SqlConnection getCn

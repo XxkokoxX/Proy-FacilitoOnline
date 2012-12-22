@@ -8,8 +8,48 @@
     <link href="estilos/Dashboard/stylesheet.css" rel="stylesheet" type="text/css" />
     <link href="estilos/Dashboard/bligoo-dashboard.css" rel="stylesheet" type="text/css" />
     <script src="estilos/Dashboard/logged.js" type="text/javascript"></script>
+    <!-- script para google map-->
+    <script  type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" >
+        var geocoder;
+        var map;
+        function initialize() {
+
+            geocoder = new google.maps.Geocoder();
+
+            var latlng = new google.maps.LatLng(-12.122294023071484, -77.02840379999998);
+
+            var mapOptions = {
+                zoom: 15,
+                center: latlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+            map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+        }
+
+        function codeAddress() {
+            var address = document.getElementById("txtCalle").value.trim()+" " + document.getElementById("txtMunicipio").value.trim();
+            var dpto = document.getElementById("cboEstado");
+            var pais = document.getElementById("cboPais");
+           
+            address = address +" " + dpto.options[dpto.selectedIndex].text + " " + pais.options[pais.selectedIndex].text;
+            
+            geocoder.geocode({ "address": address }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+
+                    map.setCenter(results[0].geometry.location);
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+                } else {
+                    alert("La Gelocalizacion no fue exitosa, estatus: " + status);
+                }
+            });
+        }
+    </script>
 </head>
-<body>
+<body onload="initialize()">
     <form id="form1" runat="server">
         <div id="bligoo-dashboard-wrapper"><div class="color-header-top " id="color-header-top"></div>
             <div id="bligoo-dashboard-innercontent">
@@ -189,7 +229,9 @@
                         </fieldset>
                         <br />
                         <fieldset class="login">
-                            <legend>Ubicación Geográfica</legend>
+                            <legend>Ubicación Geográfica </legend>
+                            <input type="button" value="Localizar" onclick="codeAddress();">
+                            <div id="map_canvas" style="height:300px;width:100%"></div>
                         </fieldset>
                         <!-- UpdatePanel -->
                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
