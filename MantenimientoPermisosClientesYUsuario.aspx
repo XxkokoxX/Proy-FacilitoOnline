@@ -1,20 +1,20 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.master" AutoEventWireup="true" CodeFile="MantenimientoPermisosClientesYUsuario.aspx.cs" Inherits="MantenimientoPermisosClientesYUsuario" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div class="line">
-    </div>
+    <div class="line"></div>
     <div class="article">
         <div style="background-position: left;">
             <h2>
                 <b>Administrar Permisos de Usuarios y Clientes</b></h2>
-            <table style="width: 100%; height: 143px;">
+            <table style="width: 100%; height: 143px;" class="ic_container">
                 <tr>
                     <td style="border-right: 1px dotted silver;width: 165px; height: 45px;">
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <img alt="" src="img/iconos/nuevo.png" />
                         <asp:Button ID="btnNuevo" runat="server" ForeColor="#FF3300" 
                             onclick="btnNuevo_Click" Text="Nuevo" 
-                            ToolTip="Clic aqui para ingresar un nuevo usuario." Width="100px" />
+                            ToolTip="Clic aqui para ingresar un nuevo usuario." Width="100px" 
+                            CssClass="yellow button" />
                     </td>
                     <td rowspan="3">
                         <table style="width:100%;">
@@ -23,8 +23,8 @@
                                 <td width="30%">
                                     <asp:TextBox ID="txtUsuarioCliente" runat="server" Enabled="False" Width="200px"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
-                                            ControlToValidate="txtUsuarioCliente" ErrorMessage="Ingrese la cuenta de usuarios." 
-                                            ToolTip="La cuenta deusuario es obligatoria." ValidationGroup="RegUserValidationGroup" 
+                                            ControlToValidate="txtUsuarioCliente" ErrorMessage="Ingrese la cuenta de usuario." 
+                                            ToolTip="La cuenta de usuario es obligatoria." ValidationGroup="RegUserValidationGroup" 
                                             CssClass="failureNotification"><img alt="" src="img/iconos/admiracion1.png" /></asp:RequiredFieldValidator>
                                 </td>
                                 <td width="20%"><b>Permisos:</b></td>
@@ -76,7 +76,8 @@
                         <img alt="" src="img/iconos/guardar.png" />
                         <asp:Button ID="btnGrabar" runat="server" Enabled="False" ForeColor="#FF3300" 
                             onclick="btnGrabar_Click" Text="Grabar" ToolTip="Clic aqui para grabar." 
-                            ValidationGroup="RegUserValidationGroup" Width="100px" />
+                            ValidationGroup="RegUserValidationGroup" Width="100px" 
+                            CssClass="yellow button" />
                     </td>
                 </tr>
                 <tr>
@@ -85,12 +86,13 @@
                         <img alt="" src="img/iconos/salir.png" />
                         <asp:Button ID="btnCancelar" runat="server" ForeColor="#FF3300" 
                             PostBackUrl="~/PanelAdministrador.aspx" Text="Cancelar" 
-                            ToolTip="Click aquí para cancelar." Width="100px" />
+                            ToolTip="Click aquí para cancelar." Width="100px" 
+                            CssClass="yellow button" />
                     </td>
                 </tr>
             </table>
         </div>
-    </div>
+    </div><br />
 
     <div>
         <span class="failureNotification"><asp:Literal ID="ErrorMessage" runat="server"></asp:Literal></span>
@@ -98,12 +100,12 @@
             ValidationGroup="RegUserValidationGroup" CssClass="error" 
             DisplayMode="List" HeaderText="Error Ingrese los siguientes datos:" 
             ShowMessageBox="True" />
-    </div>
+    </div><br />
 
     <div class="line"></div>
 
     <div class="article">
-        <table style="width: 100%;">
+        <table style="width: 100%;" class="ic_container">
             <tr>
                 <td align="center"><h3><b>Lista de Usuario y Cliente sin Permisos</b></h3></td>
             </tr>
@@ -141,8 +143,9 @@
                     </asp:GridView>
                 </td>
             </tr>
-        </table><br />
-        <table style="width: 100%;">
+        </table>
+        <br /><br />
+        <table style="width: 100%;" class="ic_container">
             <tr>
                 <td align="center"><h3><b>Lista de Permisos de Usuarios y Clientes</b></h3></td>
             </tr>
@@ -170,7 +173,8 @@
                                     <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("activo") %>'></asp:TextBox>
                                 </EditItemTemplate>
                                 <ItemTemplate>
-                                    <asp:Label ID="lblActivo" runat="server" Text='<%# Bind("activo") %>'></asp:Label>
+                                    <asp:Label ID="lblActivo" runat="server" Text='<%# Bind("activo") %>' 
+                                        Visible="False"></asp:Label>
                                     <asp:Image ID="Image2" runat="server" />
                                 </ItemTemplate>
                             </asp:TemplateField>
@@ -180,7 +184,7 @@
                                 </EditItemTemplate>
                                 <ItemTemplate>
                                     <asp:Label ID="lblAdministrador" runat="server" 
-                                        Text='<%# Bind("administrador") %>'></asp:Label>
+                                        Text='<%# Bind("administrador") %>' Visible="False"></asp:Label>
                                     <asp:Image ID="Image3" runat="server" />
                                 </ItemTemplate>
                             </asp:TemplateField>
@@ -189,7 +193,8 @@
                                     <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("visitante") %>'></asp:TextBox>
                                 </EditItemTemplate>
                                 <ItemTemplate>
-                                    <asp:Label ID="lblVisitante" runat="server" Text='<%# Bind("visitante") %>'></asp:Label>
+                                    <asp:Label ID="lblVisitante" runat="server" Text='<%# Bind("visitante") %>' 
+                                        Visible="False"></asp:Label>
                                     <asp:Image ID="Image4" runat="server" />
                                 </ItemTemplate>
                             </asp:TemplateField>
@@ -198,7 +203,8 @@
                                     <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("clienteSocio") %>'></asp:TextBox>
                                 </EditItemTemplate>
                                 <ItemTemplate>
-                                    <asp:Label ID="lblSocio" runat="server" Text='<%# Bind("clienteSocio") %>'></asp:Label>
+                                    <asp:Label ID="lblSocio" runat="server" Text='<%# Bind("clienteSocio") %>' 
+                                        Visible="False"></asp:Label>
                                     <asp:Image ID="Image5" runat="server" />
                                 </ItemTemplate>
                             </asp:TemplateField>
@@ -208,7 +214,7 @@
                                 </EditItemTemplate>
                                 <ItemTemplate>
                                     <asp:Label ID="lblInvitado" runat="server" 
-                                        Text='<%# Bind("clienteInvitado") %>'></asp:Label>
+                                        Text='<%# Bind("clienteInvitado") %>' Visible="False"></asp:Label>
                                     <asp:Image ID="Image6" runat="server" />
                                 </ItemTemplate>
                             </asp:TemplateField>

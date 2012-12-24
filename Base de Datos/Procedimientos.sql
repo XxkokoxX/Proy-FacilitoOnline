@@ -371,6 +371,33 @@ GO
 
 
 
+/* ACTUALIZAR EL TIPO DE CUENTA DEUN CLIENTE Y SU PERFIL */
+
+-- PROCEDURE QUE MODIFICA LA CUENTA DE UN CLIENTE Y SU PERFIL
+CREATE PROCEDURE USP_MODIFICAR_CUENTA_CLIENTE
+@MEMBRESIA VARCHAR(50),
+@CUENTA INT
+AS
+BEGIN TRANSACTION
+UPDATE tb_cliente
+SET tb_cliente.tipoCliente = @CUENTA 
+FROM tb_cliente T1, tb_permiso_cliente T2
+WHERE T1.membresia = T2.cliente
+and T1.membresia = @MEMBRESIA
+
+UPDATE tb_permiso_cliente
+SET tb_permiso_cliente.clienteSocio = 1,
+	tb_permiso_cliente.clienteInvitado = 0
+FROM tb_cliente T1, tb_permiso_cliente T2
+WHERE T1.membresia = T2.cliente
+and T1.membresia = @MEMBRESIA
+COMMIT
+go
+
+
+
+
+
 /* ANUNCIOS */
 
 -- PROCEDURE QUE REGISTRA ANUNCIOS
@@ -501,7 +528,7 @@ go
 
 
 
-/* SUCURSALES*/
+/* SUCURSALES */
 
 -- PROCEDURE QUE REGISTRA SUCURSAL
 create procedure USP_REGISTRAR_SUCURSAL
@@ -632,4 +659,82 @@ go
 
 
 /* CATALOGOS */
+
+
+
+
+
+/* RESERVAS */
+
+-- PROCEDURE QUE REGISTRA RESERVA
+create procedure USP_INGRESARRESERVA
+@ruc varchar(100),
+@municipio char(50),
+@fecha_res date ,
+@hora int,
+@cantidad int,
+@usuario varchar(50),
+@fecha_reg date
+as
+insert into tb_reservas values(@ruc,@municipio,@fecha_res,@hora,@cantidad,@usuario,@fecha_reg)
+go
+
+-- PROCEDURE QUE MODIFICA RESERVA
+create procedure USP_MODIFICAR_RESERVA
+@id int,
+@cantidad int
+as
+update tb_reservas set cantidad=@cantidad where id = @id
+go
+
+
+-- PROCEDURE QUE ELIMINA RESERVA
+create procedure USP_ELIMINA_RESERVA
+@id int 
+as 
+delete from tb_reservas where id=@id
+go
+
+
+
+
+
+/* COMENTARIOS */
+
+-- PROCEDURE QUE REGISTRAR COMENTARIOS
+create procedure usp_registrar_comentario
+@comentario varchar(max),
+@usuario varchar(50),
+@cliente varchar(50)
+as
+insert into tb_comentario(comentario,usuario,cliente)
+values(@comentario,@usuario,@cliente)
+go
+
+-- PROCEDURE QUE ELIMINA COMENTARIOS
+create procedure usp_eliminar_comentario
+@id int
+as
+delete from tb_comentario
+where id = @id
+go
+
+-- PROCEDURE QUE REGISTRA SUBCOMENTARIOS
+create procedure usp_registrar_subcomentario
+@subcomentario varchar(max),
+@usuario varchar(50),
+@comentario varchar(50)
+as
+insert into tb_post(subComentario,usuario,comentario)
+values(@subcomentario,@usuario,@comentario)
+go
+
+-- PROCEDURE QUE ELIMINA SUBCOMENTARIOS
+create procedure usp_eliminar_subcomentario
+@id int
+as
+delete from tb_post
+where id = @id
+go
+
 

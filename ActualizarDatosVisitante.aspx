@@ -1,10 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.master" AutoEventWireup="true" CodeFile="ActualizarDatosVisitante.aspx.cs" Inherits="MantenimientoVisitante" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-        <table style="width: 100%;">
+        <table style="width: 100%;" class="ic_container">
             <tr>
-                <td colspan="3" style="color: #6600FF; text-align: center">
-                    DATOS PERSONALES</td>
+                <td colspan="3"><h2>Actualizar Datos Personales</h2></td>
             </tr>
             <tr>
                 <td>
@@ -17,7 +16,7 @@
                 </td>
                 <td>
                     <asp:Button ID="btnActualizar" runat="server" onclick="btnActualizar_Click" 
-                        Text="Actualizar" Width="84px" />
+                        Text="Actualizar" Width="84px" CssClass="yellow button" />
                 </td>
             </tr>
             <tr>
@@ -33,14 +32,14 @@
                     &nbsp;</td>
             </tr>
             <tr>
-                <td style="height: 28px">
+                <td style="height: 27px">
                     Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
                     <asp:LoginName ID="HeadLoginName" runat="server" />
                 </td>
-                <td style="height: 28px">
-                    &nbsp;</td>
-                <td style="height: 28px">
-                    &nbsp;</td>
+                <td style="height: 27px">
+                    </td>
+                <td style="height: 27px">
+                    </td>
             </tr>
             <tr>
                 <td style="height: 25px">

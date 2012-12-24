@@ -158,6 +158,14 @@ public partial class MantenimientoUsuario : System.Web.UI.Page
         txtListarProductos.Text = Server.HtmlDecode(gridDetalleCliente.SelectedRow.Cells[8].Text);
     }
 
+    protected void cboPais_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        cboEstado.DataSource = p.listarEstadoxPais(cboPais.SelectedValue.ToString());
+        cboEstado.DataTextField = "estado";
+        cboEstado.DataValueField = "id";
+        cboEstado.DataBind();
+    }
+
     protected void btnNuevo_Click(object sender, EventArgs e)
     {
         btnGrabar.Text = "Grabar";
@@ -278,12 +286,21 @@ public partial class MantenimientoUsuario : System.Web.UI.Page
     {
         try
         {
+            if (txtMembresia.Text == string.Empty)
+            {
+                lblMensaje.Text = "Porvafor seleccione una fila";
+                string script = @"<script type = 'text/javascript'> alert('{0}'); </script>";
+                script = string.Format(script, lblMensaje.Text);
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
+                return;
+            }
+
             DataCliente dc = new DataCliente();
 
             dc.Membresia = txtMembresia.Text;
 
-            string msg = c.eliminarCliente(dc);
-            lblMensaje.Text = msg;
+            c.eliminarCliente(dc);
+            lblMensaje.Text = "Se ha eliminado a la empresa " + txtRazonSocial.Text;
 
             GridView1.DataSource = c.listarCliente();
             GridView1.DataBind();
@@ -335,4 +352,5 @@ public partial class MantenimientoUsuario : System.Web.UI.Page
             lblMensaje.Text = "Porfavor seleccione un registro de la tabla.";
         }
     }
+
 }

@@ -584,3 +584,16 @@ div.bligoo-window #event-map-canvas{margin:10px 0 0 0;}
 .bligoo-tooltip-tip-vertical{width:100%;height:6px;font-size:1px;background:url('/static/images/bligoo/hint-pin.gif') no-repeat;position:absolute;bottom:-5px;left:0;z-index:601;}
 .bligoo-tooltip-tip-horizontal{top:0;height:100%;width:6px;font-size:1px;background:url('/static/images/bligoo/hint-pin-horizontal.gif') no-repeat;position:absolute;left:-5px;z-index:601;}
 .bligoo-tooltip-body-x{width:5px;height:5px;}
+
+
+
+.ic_container{
+    vertical-align:baseline;
+    margin:5px;
+    position:relative;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    -khtml-border-radius:10px;
+    -moz-box-shadow: 0 1px 3px #888;
+    -webkit-box-shadow: 0 1px 30px #888;
+}

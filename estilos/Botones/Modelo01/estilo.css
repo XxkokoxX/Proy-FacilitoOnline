@@ -83,7 +83,10 @@ padding: 8px 14px 9px;
 .red.button, .red.button:visited { background-color: #E62727; }
 .red.button:hover{ background-color: #CF2525; }
 
-.orange.button, .orange.button:visited { background-color: #FF5C00; }
+.orange.button, .orange.button:visited { background-color: #FF5C00;
+    top: 0px;
+    left: 0px;
+}
 .orange.button:hover{ background-color: #D45500; }
 
 .blue.button, .blue.button:visited { background-color: #2981E4; }

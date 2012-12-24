@@ -1,3 +1,10 @@
-Crear la base de datos FacilitoOnline y Ejecutar el buckup
-Abrir el proyecto y cambiar la conexión
+PASOS PARA EJECUTAR LA APLICACIÓN
+
+. Crear la base de datos FacilitoOnline y Ejecutar el buckup
+. Abrir el proyecto y cambiar la conexión en la clase conexión
+. Abrir el proyecto y cambiar la conexión dependiente en la clase Restaurantes_detalle.aspx.cs
+. Habilitar el Service Broker de la base de datos para trabajar con SQLDependendy y SqlCacheDependency
+  ALTER DATABASE [FacilitoOnline] SET ENABLE_BROKER;
+  va a tardar algunos minutos.
+
 Prueben con admin / admin en iniciar sesión para usuarios

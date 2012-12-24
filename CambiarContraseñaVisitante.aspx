@@ -1,10 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.master" AutoEventWireup="true" CodeFile="CambiarContraseñaVisitante.aspx.cs" Inherits="CambiarContraseñaVisitante" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <table style="width: 100%;">
+    <h2>Actualizar Contraseña</h2><br />
+    <table style="width: 100%;" class="ic_container">
         <tr>
-            <td colspan="3" style="color: #6600FF; text-align: center">
-                MODIFICAR CONTRASEÑA</td>
+            <td colspan="3"></td>
         </tr>
         <tr>
             <td>
@@ -13,7 +13,7 @@
             </td>
             <td>
                 <asp:Button ID="btnActualizar" runat="server" onclick="btnActualizar_Click" 
-                        Text="Actualizar" Width="84px" />
+                        Text="Actualizar" Width="84px" CssClass="yellow button" />
             </td>
             <td>
                 &nbsp;</td>

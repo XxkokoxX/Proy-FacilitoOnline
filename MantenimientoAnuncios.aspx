@@ -5,7 +5,7 @@
     <div class="article">
         <div style="background-position: left;">
             <h2><b>Administrar Usuarios</b></h2>
-            <table style="width: 100%; height: 143px;">
+            <table style="width: 100%; height: 143px;" class="ic_container">
                 <tbody>
                     <tr>
                         <td style="border-right: 1px dotted silver;width: 165px; height: 45px;">
@@ -13,7 +13,8 @@
                             <img alt="" src="img/iconos/nuevo.png" />
                             <asp:Button ID="btnNuevo" runat="server" Text="Nuevo" onclick="btnNuevo_Click" 
                                 Width="100px" ForeColor="#FF3300" 
-                                ToolTip="Clic aqui para ingresar un nuevo usuario."  />
+                                ToolTip="Clic aqui para ingresar un nuevo usuario." 
+                                CssClass="yellow button"  />
                         </td>
                         <td rowspan="4">                 
                             <table style="width:100%;">
@@ -93,7 +94,8 @@
                             <asp:Button ID="btnGrabar" 
                                 runat="server" Text="Grabar" onclick="btnGrabar_Click" 
                                 Enabled="False" Width="100px" ForeColor="#FF3300" 
-                                ToolTip="Clic aqui para grabar." ValidationGroup="RegAnunValidationGroup" />
+                                ToolTip="Clic aqui para grabar." ValidationGroup="RegAnunValidationGroup" 
+                                CssClass="yellow button" />
                         </td>
                     </tr>
                     <tr>
@@ -102,7 +104,7 @@
                             <img src="img/iconos/salir.png" alt="" />
                             <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="100px" 
                                 ForeColor="#FF3300" ToolTip="Click aquí para cancelar." 
-                                PostBackUrl="~/PanelSocio.aspx" />
+                                PostBackUrl="~/PanelSocio.aspx" CssClass="yellow button" />
                         </td>
                     </tr>
                     <tr>

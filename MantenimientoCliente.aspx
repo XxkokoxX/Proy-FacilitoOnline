@@ -4,7 +4,7 @@
     <div class="article">
         <div style="background-position: left;">
             <h3><b>Administrar Clientes</b></h3>
-            <table style="width: 100%;">
+            <table style="width: 100%;" class="ic_container">
                 <tbody>
                     <tr>
                         <td class="image2" style="border-right: 1px dotted silver;width: 165px; height: 45px;">
@@ -12,7 +12,8 @@
                             <img alt="" src="img/iconos/nuevo.png" /> 
                             <asp:Button ID="btnNuevo" runat="server" Text="Nuevo" onclick="btnNuevo_Click" 
                                 Width="100px" ForeColor="#FF3300" 
-                                ToolTip="Clic aqui para ingresar un nuevo cliente."  />
+                                ToolTip="Clic aqui para ingresar un nuevo cliente." 
+                                CssClass="yellow button"  />
                         </td>
                         <td rowspan="10">
                             <table style="width: 100%;">
@@ -58,7 +59,7 @@
                                         <asp:TextBox ID="txtContacto" runat="server" Enabled="False" Width="200px"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
                                             ControlToValidate="txtContacto" ErrorMessage="Ingrese el nombre del contacto." 
-                                            ToolTip="Ingrese el nombre del contacto." ValidationGroup="RegCliValidationGroup" 
+                                            ToolTip="El nombre del contacto es obligatorio." ValidationGroup="RegCliValidationGroup" 
                                             CssClass="failureNotification"><img alt="" src="img/iconos/admiracion1.png" /></asp:RequiredFieldValidator>
                                     </td>
                                     <td>&nbsp;</td>
@@ -83,15 +84,15 @@
                                         <asp:TextBox ID="txtCalle" runat="server" Width="200px" Enabled="False"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" 
                                             ControlToValidate="txtCalle" ErrorMessage="Ingrese la dirección." 
-                                            ToolTip="Ingrese la dirección." ValidationGroup="RegCliValidationGroup" 
+                                            ToolTip="La dirección es obligatorio." ValidationGroup="RegCliValidationGroup" 
                                             CssClass="failureNotification"><img alt="" src="img/iconos/admiracion1.png" /></asp:RequiredFieldValidator>
                                         </td>
-                                    <td><b>Municipio:</b></td>
+                                    <td><b>Urbanización:</b></td>
                                     <td>
                                         <asp:TextBox ID="txtMunicipio" runat="server" Enabled="False"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" 
-                                            ControlToValidate="txtMunicipio" ErrorMessage="Ingrese el municipio." 
-                                            ToolTip="Ingrese el municipio." ValidationGroup="RegCliValidationGroup" 
+                                            ControlToValidate="txtMunicipio" ErrorMessage="Ingrese la urbanización." 
+                                            ToolTip="La urbanización es obligatorio." ValidationGroup="RegCliValidationGroup" 
                                             CssClass="failureNotification"><img alt="" src="img/iconos/admiracion1.png" /></asp:RequiredFieldValidator>
                                     </td>
                                 </tr>
@@ -101,7 +102,7 @@
                                         <asp:TextBox ID="txtNumeroExterior" runat="server" Enabled="False"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" 
                                             ControlToValidate="txtNumeroExterior" ErrorMessage="Ingrese el número exterior." 
-                                            ToolTip="Ingrese el número exterior." ValidationGroup="RegCliValidationGroup" 
+                                            ToolTip="El número exterior es obligatorio." ValidationGroup="RegCliValidationGroup" 
                                             CssClass="failureNotification"><img alt="" src="img/iconos/admiracion1.png" /></asp:RequiredFieldValidator>
                                     </td>
                                     <td><b>Número Interior:</b></td>
@@ -115,7 +116,7 @@
                                         <asp:TextBox ID="txtCP" runat="server" Enabled="False"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
                                             ControlToValidate="txtCP" ErrorMessage="Ingrese el código postal." 
-                                            ToolTip="Ingrese el código postal." ValidationGroup="RegCliValidationGroup" 
+                                            ToolTip="El código postal es obligatorio." ValidationGroup="RegCliValidationGroup" 
                                             CssClass="failureNotification"><img alt="" src="img/iconos/admiracion1.png" /></asp:RequiredFieldValidator>
                                         </td>
                                     <td><b>Ciudad:</b></td>
@@ -123,17 +124,18 @@
                                         <asp:TextBox ID="txtCiudad" runat="server" Enabled="False"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" 
                                             ControlToValidate="txtCiudad" ErrorMessage="Ingrese la ciudad." 
-                                            ToolTip="Ingrese la ciudad." ValidationGroup="RegCliValidationGroup" 
+                                            ToolTip="La ciudad es obligatorio." ValidationGroup="RegCliValidationGroup" 
                                             CssClass="failureNotification"><img alt="" src="img/iconos/admiracion1.png" /></asp:RequiredFieldValidator>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td style="height: 27px"><b>País:</b></td>
                                     <td style="height: 27px">
-                                        <asp:DropDownList ID="cboPais" runat="server" Enabled="False" width="153px">
+                                        <asp:DropDownList ID="cboPais" runat="server" Enabled="False" width="153px" 
+                                            onselectedindexchanged="cboPais_SelectedIndexChanged" AutoPostBack="True">
                                         </asp:DropDownList>
                                     </td>
-                                    <td style="height: 27px"><b>Estado:</b></td>
+                                    <td style="height: 27px"><b>Departamento:</b></td>
                                     <td style="height: 27px">
                                         <asp:DropDownList ID="cboEstado" runat="server" Enabled="False" Width="153px">
                                         </asp:DropDownList>
@@ -177,7 +179,7 @@
                                     <td colspan="3" style="height: 27px"><asp:FileUpload ID="FileUpload1" runat="server" Enabled="False" /></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="4" style="height: 27px"><asp:Label ID="lblMensaje" runat="server" Text="" CssClass="failureNotification"></asp:Label></td>
+                                    <td colspan="4" style="height: 27px"><b><asp:Label ID="lblMensaje" runat="server" Text="" CssClass="failureNotification"></asp:Label></b></td>
                                 </tr>
                                 </table>             
                         </td>
@@ -189,7 +191,8 @@
                             <asp:Button ID="btnGrabar" 
                                 runat="server" Text="Grabar" onclick="btnGrabar_Click" 
                                 Enabled="False" Width="100px" ForeColor="#FF3300" 
-                                ToolTip="Clic aqui para grabar." ValidationGroup="RegCliValidationGroup" />
+                                ToolTip="Clic aqui para grabar." ValidationGroup="RegCliValidationGroup" 
+                                CssClass="yellow button" />
                         </td>
                     </tr>
                     <tr>
@@ -198,7 +201,7 @@
                             <img src="img/iconos/salir.png" alt="" />
                             <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="100px" 
                                 ForeColor="#FF3300" ToolTip="Click aquí para cancelar." 
-                                PostBackUrl="~/PanelAdministrador.aspx" />
+                                PostBackUrl="~/PanelAdministrador.aspx" CssClass="yellow button" />
                         </td>
                     </tr>
                     <tr>
@@ -232,19 +235,19 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </div><br />
 
     <div>
         <span class="failureNotification"><asp:Literal ID="ErrorMessage" runat="server"></asp:Literal></span>
         <asp:ValidationSummary ID="ValidationSummary1" runat="server" 
         ValidationGroup="RegCliValidationGroup" CssClass="error" 
         ShowMessageBox="True" DisplayMode="List" />
-    </div>
+    </div><br />
 
     <div class="line"></div> 
                
     <div class="article">
-        <table style="width: 100%;">
+        <table style="width: 100%;" class="ic_container">
             <tr>
                 <td align="center"><h3><b>Destalle de Usuarios</b></h3></td>
             </tr>
@@ -285,8 +288,8 @@
                     </asp:GridView>
                 </td>
             </tr>
-        </table><br />
-        <table style="width: 100%;"> 
+        </table><br /><br />
+        <table style="width: 100%;" class="ic_container"> 
             <tr>
                 <td align="center"><h3><b>Lista de Usuarios</b></h3></td>
             </tr>

@@ -106,13 +106,3 @@ legend
     font-weight: 600;
     padding: 2px 4px 8px 4px;
 }
-
-
-.line{
-	/* The dividing line: */
-	height:0px;
-	background-color:#24404c;
-	border-bottom:1px solid #416371;
-	margin:1em 0;
-	overflow:hidden;
-}

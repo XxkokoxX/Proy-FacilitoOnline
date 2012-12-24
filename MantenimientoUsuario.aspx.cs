@@ -81,7 +81,7 @@ public partial class MantenimientoUsuario : System.Web.UI.Page
             txtDireccion.Text = Server.HtmlDecode( GridView1.SelectedRow.Cells[5].Text);
             DateTime fn = DateTime.Parse(GridView1.SelectedRow.Cells[6].Text);
             txtFechaDeNacimiento.Text = fn.ToShortDateString();
-            cboTipoUsuario.Text = tipoUsuario;
+            cboTipoUsuario.SelectedValue = tipoUsuario;
             lblFechaRegistro.Text = GridView1.SelectedRow.Cells[8].Text;
             
             btnGrabar.Text = "Grabar";
@@ -168,15 +168,25 @@ public partial class MantenimientoUsuario : System.Web.UI.Page
 
     protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
+        
         try
         {
+            if (txtEmail.Text == string.Empty)
+            {
+                lblMensaje.Text = "Porvafor seleccione una fila";
+                string script = @"<script type = 'text/javascript'> alert('{0}'); </script>";
+                script = string.Format(script, lblMensaje.Text);
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
+                return;
+            }
+
             DataUsuario du = new DataUsuario();
 
             du.Email = txtEmail.Text;
 
-            string msg = u.eliminarUsuario(du);
-            lblMensaje.Text = msg;
-
+            u.eliminarUsuario(du);
+            lblMensaje.Text = "Se ha eliminado al usuario " + txtNombres.Text + " " + txtApellidos.Text;
+            
             GridView1.DataSource = u.listarUsuario();
             GridView1.DataBind();
 
@@ -203,5 +213,7 @@ public partial class MantenimientoUsuario : System.Web.UI.Page
         {
             lblMensaje.Text = "Porfavor seleccione un registro de la tabla.";
         }
+
+        
     }
 }

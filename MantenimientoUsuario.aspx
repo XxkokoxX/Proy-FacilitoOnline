@@ -5,7 +5,7 @@
     <div class="article">
         <div style="background-position: left;">
             <h2><b>Administrar Usuarios</b></h2>
-            <table style="width: 100%; height: 143px;">
+            <table style="width: 100%; height: 143px;" class="ic_container">
                 <tbody>
                     <tr>
                         <td style="border-right: 1px dotted silver;width: 165px; height: 45px;">
@@ -13,7 +13,8 @@
                             <img alt="" src="img/iconos/nuevo.png" />
                             <asp:Button ID="btnNuevo" runat="server" Text="Nuevo" onclick="btnNuevo_Click" 
                                 Width="100px" ForeColor="#FF3300" 
-                                ToolTip="Clic aqui para ingresar un nuevo usuario."  />
+                                ToolTip="Clic aqui para ingresar un nuevo usuario." 
+                                CssClass="yellow button"  />
                         </td>
                         <td rowspan="3">                 
                             <table style="width:100%;">
@@ -22,7 +23,7 @@
                                     <td width="30%">
                                         <asp:TextBox ID="txtEmail" runat="server" Enabled="False" Width="200px"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                                        ControlToValidate="txtEmail" ErrorMessage="Ingrese el e-mail." 
+                                        ControlToValidate="txtEmail" ErrorMessage="Ingrese un correo electrónico." 
                                         ToolTip="El email es obligatorio." ValidationGroup="RegUserValidationGroup" 
                                         CssClass="failureNotification"><img alt="" src="img/iconos/admiracion1.png" /></asp:RequiredFieldValidator>
                                     </td>
@@ -56,7 +57,7 @@
                                     <td>
                                         <asp:TextBox ID="txtNombres" runat="server" Enabled="False" Width="200px"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
-                                            ControlToValidate="txtNombres" ErrorMessage="Ingrese los nombres." 
+                                            ControlToValidate="txtNombres" ErrorMessage="Ingrese el nombre completo." 
                                             ToolTip="El nombre es obligatio." ValidationGroup="RegUserValidationGroup" 
                                             CssClass="failureNotification"><img alt="" src="img/iconos/admiracion1.png" /></asp:RequiredFieldValidator>
                                     </td>
@@ -70,7 +71,7 @@
                                     <td>
                                         <asp:TextBox ID="txtApellidos" runat="server" Enabled="False" Width="200px"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
-                                            ControlToValidate="txtApellidos" ErrorMessage="Ingrese los Apellidos." 
+                                            ControlToValidate="txtApellidos" ErrorMessage="Ingrese los apellidos." 
                                             ToolTip="El apelllido es obligatorio." ValidationGroup="RegUserValidationGroup" 
                                             CssClass="failureNotification"><img alt="" src="img/iconos/admiracion1.png" /></asp:RequiredFieldValidator>
                                     </td>
@@ -91,7 +92,7 @@
                                     <td colspan="2"><asp:FileUpload ID="FileUpload1" runat="server" Enabled="False" /></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="5"><asp:Label ID="lblMensaje" runat="server" CssClass="failureNotification"></asp:Label></td>
+                                    <td colspan="5"><b><asp:Label ID="lblMensaje" runat="server" CssClass="failureNotification"></asp:Label></b></td>
                                 </tr>
                             </table>
                         </td>
@@ -103,7 +104,8 @@
                             <asp:Button ID="btnGrabar" 
                                 runat="server" Text="Grabar" onclick="btnGrabar_Click" 
                                 Enabled="False" Width="100px" ForeColor="#FF3300" 
-                                ToolTip="Clic aqui para grabar." ValidationGroup="RegUserValidationGroup" />
+                                ToolTip="Clic aqui para grabar." ValidationGroup="RegUserValidationGroup" 
+                                CssClass="yellow button" />
                         </td>
                     </tr>
                     <tr>
@@ -112,13 +114,13 @@
                             <img src="img/iconos/salir.png" alt="" />
                             <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="100px" 
                                 ForeColor="#FF3300" ToolTip="Click aquí para cancelar." 
-                                PostBackUrl="~/PanelAdministrador.aspx" />
+                                PostBackUrl="~/PanelAdministrador.aspx" CssClass="yellow button" />
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-    </div>
+    </div><br />
         
     <div>
         <span class="failureNotification"><asp:Literal ID="ErrorMessage" runat="server"></asp:Literal></span>
@@ -126,12 +128,12 @@
             ValidationGroup="RegUserValidationGroup" CssClass="error" 
             DisplayMode="List" HeaderText="Error Ingrese los siguientes datos:" 
             ShowMessageBox="True" />
-    </div>
+    </div><br />
 
     <div class="line"></div>   
         
     <div class="article">
-        <table style="width: 100%;">
+        <table style="width: 100%;" class="ic_container">
             <tr>
                 <td align="center"><h3><b>Lista de Usuarios</b></h3></td>
             </tr>
@@ -181,7 +183,8 @@
 
                             <asp:TemplateField HeaderText="Tipo de Usuario">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblTipoUsuario" runat="server" Text='<%# Bind("tipoUsuario") %>'></asp:Label>
+                                    <asp:Label ID="lblTipoUsuario" runat="server" Text='<%# Bind("tipoUsuario") %>' 
+                                        Visible="False"></asp:Label>
                                     <asp:Image ID="Image2" runat="server" />
                                 </ItemTemplate>
                             </asp:TemplateField>

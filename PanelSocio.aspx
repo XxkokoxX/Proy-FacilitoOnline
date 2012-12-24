@@ -46,7 +46,7 @@
                             <div class="dashboard-site-more-options-area " id="site-extra-config-345969" style="display: ;">
                                 <div class="dashboard-site-extra-config-item float-left ">
                                     <div class="dashboard-site-extra-config-item-title dashboard-extra-config-pro-account ">
-                                        <a class=" open-bligoo-window-link " href="javascript:void(0)" data-method="windowProAccount" data-name="windowproaccount" data-parameters="{&#39;blogId&#39;:&#39;345969&#39;}" data-height="130" data-width="400" data-module="ContactForm">Actualizar datos de la Empresa</a>
+                                        <a class=" open-bligoo-window-link " href="ActualizarDatosEmpresa.aspx" data-method="windowProAccount" data-name="windowproaccount" data-parameters="{&#39;blogId&#39;:&#39;345969&#39;}" data-height="130" data-width="400" data-module="ContactForm">Actualizar datos de la Empresa</a>
                                     </div>
                                     <div class="dashboard-site-extra-config-item-desc ">
                                         <p>Realizar algún cambio en la información de mi empresa.</p>
@@ -123,7 +123,7 @@
 
                                 <div class="dashboard-site-extra-config-item float-left ">
                                     <div class="dashboard-site-extra-config-item-title dashboard-extra-config-theme-edit ">
-                                        <a class=" open-bligoo-window-link " href="javascript:void(0)" data-method="windowDashboardThemeEdit" data-name="windowdashboardthemeedit" data-parameters="{&#39;blogId&#39;:&#39;345969&#39;}" data-height="120" data-width="400" data-module="Blog">
+                                        <a class=" open-bligoo-window-link " href="ConsultarComentarios.aspx" data-method="windowDashboardThemeEdit" data-name="windowdashboardthemeedit" data-parameters="{&#39;blogId&#39;:&#39;345969&#39;}" data-height="120" data-width="400" data-module="Blog">
                                         Ver Comentarios</a>
                                     </div>
                                     <div class="dashboard-site-extra-config-item-desc "><p>Se ha creado con el fin de realizar el mantenimiento de los comentarios de la aplicación.</p></div>

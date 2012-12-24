@@ -8,7 +8,7 @@
     <link href="estilos/Dashboard/stylesheet.css" rel="stylesheet" type="text/css" />
     <link href="estilos/Dashboard/bligoo-dashboard.css" rel="stylesheet" type="text/css" />
     <script src="estilos/Dashboard/logged.js" type="text/javascript"></script>
-    <!-- JQuery mensajes modelo 1-->
+        <!-- JQuery mensajes modelo 1-->
     <script src="estilos/MensajesjQuery/jquery-1.2.6.js" type="text/javascript"></script>
     <style type="text/css">
     .info, .exito, .alerta, .error {
@@ -46,6 +46,8 @@
             setTimeout(function () { $(".mensajes").fadeOut(800).fadeIn(800).fadeOut(500).fadeIn(500).fadeOut(300); }, 3000);
         });
     </script>
+    <!-- Estilos botones -->
+    <link href="estilos/Botones/Modelo01/estilo.css" rel="stylesheet" type="text/css" />
 </head>
 <body id="main-body" class="dashboard">
     <form id="form1" runat="server">

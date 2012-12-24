@@ -21,7 +21,13 @@ public partial class CambiarContraseñaVisitante : System.Web.UI.Page
 
     protected void btnActualizar_Click(object sender, EventArgs e)
     {
-       
+
+        if (txtClave.Text == string.Empty)
+        {
+            lblMensaje.Text = "Ingrese su contraseña";
+            return;
+        }
+
         DataTable datosUsuario = usu.buscarUsuario(Context.User.Identity.Name);
 
         if(!txtClave.Text.Equals(datosUsuario.Rows[0]["contraseña"].ToString().Trim())){

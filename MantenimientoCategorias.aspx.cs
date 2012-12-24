@@ -16,7 +16,7 @@ public partial class MantenimientoUsuario : System.Web.UI.Page
     {
         try
         {
-            txtUsu.Text = Context.User.Identity.Name;
+            //txtUsu.Text = Context.User.Identity.Name;
             if (!Page.IsPostBack)
             {
                 if (!Context.User.Identity.IsAuthenticated)

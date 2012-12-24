@@ -74,9 +74,35 @@ public class Cliente
         {
             cn.getCn.Close();
         }
-
         return msg;
-            
+    }
+
+
+    public String modficiarCuentaYPerfilDelCliente(DataCliente cli)
+    {
+        string msg = "";
+
+        SqlCommand cmd = new SqlCommand("USP_MODIFICAR_CUENTA_CLIENTE", cn.getCn);
+        cmd.CommandType = CommandType.StoredProcedure;
+
+        cmd.Parameters.Add("@MEMBRESIA", SqlDbType.VarChar).Value = cli.Membresia;
+        cmd.Parameters.Add("@CUENTA", SqlDbType.Int).Value = cli.TipoCliente;
+
+        cn.getCn.Open();
+
+        try
+        {
+            msg = cmd.ExecuteNonQuery() + " Registro actualizado";
+        }
+        catch (Exception ex)
+        {
+            msg = ex.Message;
+        }
+        finally
+        {
+            cn.getCn.Close();
+        }
+        return msg;
     }
 
 
@@ -167,16 +193,7 @@ public class Cliente
     }
 
 
-    public DataTable filtro1(string razon)
-    {
-        SqlDataAdapter da = new SqlDataAdapter("select * from tb_cliente where razonSocial like '"+ razon + "%'", cn.getCn);
-        DataTable tb = new DataTable();
-        da.Fill(tb);
-        return tb;
-    }
-
-
-    public object buscarClientePorRazonSocial(string razonSocial)
+    public DataTable buscarClientePorRazonSocial(string razonSocial)
     {
         SqlDataAdapter da = new SqlDataAdapter("select * from tb_cliente where razonSocial=@razon", cn.getCn);
         da.SelectCommand.Parameters.Add("@razon",SqlDbType.VarChar).Value = razonSocial;
@@ -189,6 +206,15 @@ public class Cliente
     {
         SqlDataAdapter da = new SqlDataAdapter("select calle,municipio,estado,pais from tb_cliente where razonSocial=@razon", cn.getCn);
         da.SelectCommand.Parameters.Add("@razon", SqlDbType.VarChar).Value = razonSocial;
+        DataTable tb = new DataTable();
+        da.Fill(tb);
+        return tb;
+    }
+
+
+    public DataTable filtro1(string razon)
+    {
+        SqlDataAdapter da = new SqlDataAdapter("select * from tb_cliente where razonSocial like '" + razon + "%'", cn.getCn);
         DataTable tb = new DataTable();
         da.Fill(tb);
         return tb;
