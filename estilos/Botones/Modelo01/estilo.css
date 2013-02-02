@@ -10,7 +10,7 @@
         width:80px;
         height:19px;
        }
-	   
+
 /* --------------- BOTONES --------------- */
 
 .button, .button:visited { /* botones genéricos */
@@ -92,9 +92,8 @@ padding: 8px 14px 9px;
 .blue.button, .blue.button:visited { background-color: #2981E4; }
 .blue.button:hover{ background-color: #2575CF; }
 
-.yellow.button, .yellow.button:visited { background-color: #FFB515; }
+.yellow.button, .yellow.button:visited { background-color: #FFB515;
+    top: 0px;
+    left: 0px;
+}
 .yellow.button:hover{ background-color: #FC9200; }
-	   
-	   
-	   
-	   

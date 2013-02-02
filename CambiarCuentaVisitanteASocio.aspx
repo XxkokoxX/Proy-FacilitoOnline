@@ -9,7 +9,7 @@
                 <tbody>
                     <tr>
                         <td style="border-right: 1px dotted silver;width: 165px; height: 45px;">
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;
                             <img src="img/iconos/guardar.png" alt=""/>
                             <asp:Button ID="btnGrabar" 
                                 runat="server" Text="Grabar" onclick="btnGrabar_Click" Width="100px" ForeColor="#FF3300" 

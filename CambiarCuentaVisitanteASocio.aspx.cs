@@ -59,7 +59,12 @@ public partial class MantenimientoVisitante : System.Web.UI.Page
         cli.modficiarCuentaYPerfilDelCliente(dc);
 
         string script = @"<script type = 'text/javascript'> alert('{0}'); </script>";
-        script = string.Format(script, "Su cuenta y su perfil han sido actualizado con éxito");
+        script = string.Format(script, "Su cuenta y su perfil han sido actualizado con éxito. Ahora Cierre Sesión e Ingrese nuevamente a la aplicación");
         ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
+
+        txtClave.Enabled = false;
+        txtConfirmacion.Enabled = false;
+        cboTipoCuenta2.Enabled = false;
+        btnGrabar.Enabled = false;
     }
 }

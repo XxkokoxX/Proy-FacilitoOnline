@@ -14,6 +14,9 @@ public partial class MantenimientoUsuario : System.Web.UI.Page
 
     string ruc;
 
+    string usuarioRecuperado ="";
+    
+
     protected void Page_Load(object sender, EventArgs e)
     {
         try
@@ -22,12 +25,18 @@ public partial class MantenimientoUsuario : System.Web.UI.Page
             {
                 if (!Context.User.Identity.IsAuthenticated)
                 {
-                    FormsAuthentication.RedirectToLoginPage("Login_Cliente.aspx");
+                    //FormsAuthentication.RedirectToLoginPage("Login_Cliente.aspx");
+                    Response.Redirect("Login_Cliente.aspx");
                 }
                 else
                 {
                     listar();
                     txtRazonSocial.Text = Session["USER_NAME"].ToString();
+
+                    lblUsuario.Visible = false;
+                    //usuarioRecuperado = Session["Usuario"].ToString();
+                    //lblUsuario.Text = Session["Usuario"].ToString();
+                    lblUsuario.Text = Context.User.Identity.Name;
                 }
             }
         }
@@ -87,6 +96,7 @@ public partial class MantenimientoUsuario : System.Web.UI.Page
         txtTitulo.Enabled = true;
         txtDescripcion.Enabled = true;
         FileUpload1.Enabled = true;
+        txtDescripcion.Enabled = true;
     }
 
     protected void btnGrabar_Click(object sender, EventArgs e)
@@ -95,12 +105,13 @@ public partial class MantenimientoUsuario : System.Web.UI.Page
         {
 
             string file = FileUpload1.FileName;
-
+            
             if (file != "")
             {
-                byte[] imageBytes = FileUpload1.FileBytes;
-                string ms = a.Insertar(txtTitulo.Text, txtDescripcion.Text, imageBytes, txtRazonSocial.Text);
 
+                byte[] imageBytes = FileUpload1.FileBytes;
+                string ms = a.Insertar(txtTitulo.Text, txtDescripcion.Text, imageBytes, txtRazonSocial.Text, lblUsuario.Text);
+                
                 lblMensaje.Text = ms;
                 listar();
 
@@ -112,6 +123,7 @@ public partial class MantenimientoUsuario : System.Web.UI.Page
                 txtRazonSocial.Enabled = false;
                 txtDescripcion.Enabled = false;
                 FileUpload1.Enabled = false;
+                txtDescripcion.Enabled = false;
             }
             else
             {

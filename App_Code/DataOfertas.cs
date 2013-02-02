@@ -14,6 +14,10 @@ public class DataOfertas
     private DateTime fecha_fin;
     private bool estado;
     private string cliente;
+    private int producto;
+    private float precioActual;
+    private float precioOferta;
+
 
 	public DataOfertas()
 	{
@@ -62,5 +66,23 @@ public class DataOfertas
     {
         get { return cliente; }
         set { cliente = value; }
+    }
+
+    public int Producto
+    {
+        get { return producto; }
+        set { producto = value; }
+    }
+
+    public float PrecioActual
+    {
+        get { return precioActual; }
+        set { precioActual = value; }
+    }
+
+    public float PrecioOferta
+    {
+        get { return precioOferta; }
+        set { precioOferta = value; }
     }
 }

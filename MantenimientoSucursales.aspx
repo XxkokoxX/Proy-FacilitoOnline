@@ -4,7 +4,7 @@
     <div class="line"></div> 
     <div class="article">
         <div style="background-position: left;">
-            <h2><b>Administrar Sucursales</b></h2>
+            <h2><b>Administrar Sucursales</b></h2><br />
             <table style="width: 100%; height: 143px;" class="ic_container">
                 <tbody>
                     <tr>
@@ -21,15 +21,17 @@
                                 <tr>
                                     <td width="15%"><b>Surcursal:</b></td>
                                     <td width="30%">
-                                        <asp:TextBox ID="txtSucursal" runat="server" Width="200px" Enabled="False"></asp:TextBox>
+                                        <asp:TextBox ID="txtSucursal" runat="server" Width="200px" Enabled="False" 
+                                            CssClass="campo-field"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" 
                                             ControlToValidate="txtSucursal" ErrorMessage="Ingrese sucursal." 
                                             ToolTip="La sucursal es obligatoria." ValidationGroup="RegSucurValidationGroup" 
                                             CssClass="failureNotification"><img alt="" src="img/iconos/admiracion1.png" /></asp:RequiredFieldValidator>
                                     </td>
-                                    <td width="20%"><b>Telefono</b></td>
+                                    <td width="20%"><b>Teléfono</b></td>
                                     <td width="35%">
-                                        <asp:TextBox ID="txtTelefono" runat="server" Enabled="False" Width="200px"></asp:TextBox>
+                                        <asp:TextBox ID="txtTelefono" runat="server" Enabled="False" Width="200px" 
+                                            CssClass="campo-field"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
@@ -38,27 +40,31 @@
                                         <asp:DropDownList ID="cboDepartamento" runat="server" Enabled="False" 
                                             AutoPostBack="True" 
                                             onselectedindexchanged="cboDepartamento_SelectedIndexChanged" 
-                                            Width="204px">
+                                            Width="204px" CssClass="campo-field">
                                         </asp:DropDownList>
                                     </td>
                                     <td width="20%"><b>Imagen</b></td>
                                     <td width="35%">
-                                        <asp:TextBox ID="txtCliente" runat="server" Visible="False"></asp:TextBox>
+                                        <asp:TextBox ID="txtCliente" runat="server" Visible="False" 
+                                            CssClass="campo-field"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><b>Distrtio:</b></td>
+                                    <td><b>Distrito:</b></td>
                                     <td>
-                                        <asp:DropDownList ID="cboDistrito" runat="server" Enabled="False" Width="204px">
+                                        <asp:DropDownList ID="cboDistrito" runat="server" Enabled="False" Width="204px" 
+                                            CssClass="campo-field">
                                         </asp:DropDownList>
                                     </td>
                                     <td colspan="2">
-                                        <asp:FileUpload ID="FileUpload1" runat="server" Enabled="False" /></td>
+                                        <asp:FileUpload ID="FileUpload1" runat="server" Enabled="False" 
+                                            CssClass="campo-field" /></td>
                                 </tr>
                                 <tr>
                                     <td><b>Dirección</b></td>
                                     <td>
-                                        <asp:TextBox ID="txtDireccion" runat="server" Width="200px" Enabled="False"></asp:TextBox>
+                                        <asp:TextBox ID="txtDireccion" runat="server" Width="200px" Enabled="False" 
+                                            CssClass="campo-field"></asp:TextBox>
                                         </td>
                                     <td>&nbsp;</td>
                                     <td>
@@ -84,7 +90,7 @@
                                 <tr>
                                     <td colspan="3" rowspan="4">
                                         <asp:TextBox ID="txtDescripcion" runat="server" Enabled="False" Height="90px" 
-                                            TextMode="MultiLine" Width="500px"></asp:TextBox>
+                                            TextMode="MultiLine" Width="500px" CssClass="campo-field"></asp:TextBox>
                                     </td>
                                     <td>&nbsp;</td>
                                 </tr>
@@ -143,12 +149,12 @@
             ValidationGroup="RegSucurValidationGroup" CssClass="error" 
             DisplayMode="List" HeaderText="Error Ingrese los siguientes datos:" 
             ShowMessageBox="True" />
-    </div>
+    </div><br />
 
-    <div class="line"></div>   
+    <div class="line"></div><br />   
         
     <div class="article">
-        <table style="width: 100%;">
+        <table style="width: 100%;" class="ic_container">
             <tr>
                 <td align="center"><h3><b>Lista de Sucursales</b></h3></td>
             </tr>
@@ -184,7 +190,7 @@
                             <ItemStyle Width="100px" />
                             </asp:BoundField>
 
-                            <asp:boundfield datafield="telefono" headertext="Telelefono">
+                            <asp:boundfield datafield="telefono" headertext="Teléfono">
                                 <HeaderStyle HorizontalAlign="Center" />
                             </asp:boundfield>
 

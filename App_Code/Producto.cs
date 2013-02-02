@@ -17,25 +17,12 @@ public class Producto
 		//
 	}
 
-    public String BorrarCategoria(string cod)
+    public DataTable cargarCategoria()
     {
-        int id = int.Parse(cod);
-        string m = "";
-
-        try
-        {
-            SqlDataAdapter da = new SqlDataAdapter();
-            da.SelectCommand = new SqlCommand("delete tb_categoria_prod where id=" + id + "", cn.getCn);
-            cn.getCn.Open();
-            m = da.SelectCommand.ExecuteNonQuery().ToString() + " registro eliminado";
-        }
-        catch (Exception ex)
-        {
-            m = "No puede borrar esta Categoria por que esta siendo usada por un Producto, por favor elimine el producto";
-        }
-        finally { cn.getCn.Close(); }
-
-        return m;
+        SqlDataAdapter da = new SqlDataAdapter("select * from tb_categoria_prod", cn.getCn);
+        DataTable tb = new DataTable();
+        da.Fill(tb);
+        return tb;
     }
 
     public String agregarCategoria(string categoria) {
@@ -94,14 +81,27 @@ public class Producto
         return m;
     }
 
-
-    public DataTable cargarCategoria()
+    public String BorrarCategoria(string cod)
     {
-        SqlDataAdapter da = new SqlDataAdapter("select * from tb_categoria_prod", cn.getCn);
-        DataTable tb = new DataTable();
-        da.Fill(tb);
-        return tb;
+        int id = int.Parse(cod);
+        string m = "";
+
+        try
+        {
+            SqlDataAdapter da = new SqlDataAdapter();
+            da.SelectCommand = new SqlCommand("delete tb_categoria_prod where id=" + id + "", cn.getCn);
+            cn.getCn.Open();
+            m = da.SelectCommand.ExecuteNonQuery().ToString() + " registro eliminado";
+        }
+        catch (Exception ex)
+        {
+            m = "No puede borrar esta Categoria por que esta siendo usada por un Producto, por favor elimine el producto";
+        }
+        finally { cn.getCn.Close(); }
+
+        return m;
     }
+    
 
     public DataTable UbicarProducto(string nombre)
     {
@@ -122,9 +122,36 @@ public class Producto
         SqlDataAdapter da = new SqlDataAdapter();
         da.SelectCommand = new SqlCommand("USP_LISTAR_PROD_CATEGO_xRuc", cn.getCn);
         da.SelectCommand.CommandType = CommandType.StoredProcedure;
-
         da.SelectCommand.Parameters.Add("@ruc", SqlDbType.VarChar).Value = ruc;
+        DataTable tb = new DataTable();
+        da.Fill(tb);
+        return tb;
+    }
 
+    public DataTable listarProductoss(string cli)
+    {
+        SqlDataAdapter da = new SqlDataAdapter();
+        da.SelectCommand = new SqlCommand("select * from tb_productos where usuario=@cli", cn.getCn);
+        da.SelectCommand.Parameters.Add("@cli", SqlDbType.VarChar).Value = cli;
+        DataTable tb = new DataTable();
+        da.Fill(tb);
+        return tb;
+    }
+
+    public DataTable listarProductosXCategoria(int cat,string cli)
+    {
+        SqlDataAdapter da = new SqlDataAdapter("select * from tb_productos where categoria = @cat and usuario = @cli", cn.getCn);
+        da.SelectCommand.Parameters.Add("@cat", SqlDbType.Int).Value = cat;
+        da.SelectCommand.Parameters.Add("@cli", SqlDbType.VarChar).Value = cli;
+        DataTable tb = new DataTable();
+        da.Fill(tb);
+        return tb;
+    }
+
+    public DataTable listarPrecioXProducto(int prod)
+    {
+        SqlDataAdapter da = new SqlDataAdapter("select precio from tb_productos where id=@prod", cn.getCn);
+        da.SelectCommand.Parameters.Add("@prod", SqlDbType.Int).Value = prod;
         DataTable tb = new DataTable();
         da.Fill(tb);
         return tb;
@@ -221,5 +248,14 @@ public class Producto
         }
 
         return m;
+    }
+
+
+    public DataTable listarSoloProducto()
+    {
+        SqlDataAdapter da = new SqlDataAdapter("select * from tb_productos", cn.getCn);
+        DataTable tb = new DataTable();
+        da.Fill(tb);
+        return tb;
     }
 }

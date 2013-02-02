@@ -106,3 +106,4 @@ legend
     font-weight: 600;
     padding: 2px 4px 8px 4px;
 }
+.campo-field:focus{background-color:#fff8d5;}

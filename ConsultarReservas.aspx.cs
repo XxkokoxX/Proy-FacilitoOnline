@@ -8,14 +8,32 @@ using System.Web.UI.WebControls;
 public partial class ConsultarReservas : System.Web.UI.Page
 {
     Reserva r = new Reserva();
+    //Cliente cli = new Cliente();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
         {
-            listar();
+            if (!Context.User.Identity.IsAuthenticated)
+            {
+                //FormsAuthentication.RedirectToLoginPage("Login_Cliente.aspx");
+                Response.Redirect("Login_Usuario.aspx");
+            }
+            else
+            {
+                txtFechaInicio.Text = DateTime.Today.ToShortDateString();
+                txtFechaFin.Text = DateTime.Today.ToShortDateString();
+
+                cboCliente.DataSource = r.ListarReserva(Context.User.Identity.Name);
+                cboCliente.DataTextField = "ruc";
+                cboCliente.DataValueField = "membresia";
+                cboCliente.DataBind();
+
+                listar();
+            }
+            
         }
     }
-
 
     private void listar(){
 
@@ -23,7 +41,6 @@ public partial class ConsultarReservas : System.Web.UI.Page
         GridView1.DataSource = r.ListarReserva(usuario) ;
         GridView1.DataBind();
     }
-
 
     protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
     {
@@ -71,4 +88,16 @@ public partial class ConsultarReservas : System.Web.UI.Page
 
     }
 
+    protected void btnBuscar_Click(object sender, EventArgs e)
+    {
+
+        GridView1.DataSource = r.BuscarListarReserva(cboCliente.SelectedValue.ToString());
+        GridView1.DataBind();;
+    }
+
+    protected void btnLimpiar_Click(object sender, EventArgs e)
+    {
+        txtFechaInicio.Text = string.Empty;
+        txtFechaFin.Text = string.Empty;
+    }
 }

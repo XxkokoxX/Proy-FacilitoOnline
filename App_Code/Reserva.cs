@@ -12,6 +12,7 @@ public class Reserva
 {
 
     Conexion cn = new Conexion();
+
 	public Reserva()
 	{
 		//
@@ -54,8 +55,7 @@ public class Reserva
 
     public DataTable ListarReserva(string nombre)
     {
-
-        SqlDataAdapter da = new SqlDataAdapter("select * from tb_reservas where usuario='"+nombre+"'", cn.getCn);
+        SqlDataAdapter da = new SqlDataAdapter("select r.*,c.membresia from tb_reservas r join tb_cliente c on r.ruc = c.razonSocial where r.usuario='"+nombre+"'", cn.getCn);
         DataTable tb = new DataTable();
         da.Fill(tb);
         return tb;
@@ -128,5 +128,15 @@ public class Reserva
 
         return tb.Rows[0][0].ToString();
     }
+
+
+    public DataTable BuscarListarReserva(string membresia)
+    {
+        SqlDataAdapter da = new SqlDataAdapter("select r.*,c.membresia from tb_reservas r join tb_cliente c on r.ruc = c.razonSocial where c.membresia='" + membresia + "'", cn.getCn);
+        DataTable tb = new DataTable();
+        da.Fill(tb);
+        return tb;
+    }
+    
 
 }

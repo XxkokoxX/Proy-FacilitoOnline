@@ -37,7 +37,7 @@ public class Permisos
         try
         {
             cmd.ExecuteNonQuery();
-            msg = "Muchas Gracias! Su Cuenta ha sido Activada";
+            msg = "Muchas Gracias! Su Cuenta ha sido Activada. Usted ya puede ingresar a la aplicación";
         }
         catch (Exception ex)
         {

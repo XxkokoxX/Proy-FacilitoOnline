@@ -7,7 +7,7 @@
                 <thead>
                     <tr class=" even ">
                         <td>Panel de Control Cliente Socio</td>
-                        <td>Lecturas<a class=" has-bligoo-tooltip " data-bligoo-tooltip-text="&lt;div id=&#39;dashboard-reports-visits-number-tooltip&#39;&gt;&lt;img width=&#39;219&#39; height=&#39;52&#39; src=&#39;estilos/Dashboard/face-report-description-table.gif&#39;/&gt;&lt;p&gt;Promedio de lecturas de esta semana en relación a la semana anterior&lt;/p&gt;&lt;/div&gt;" data-bligoo-tooltip-width="300" href="javascript:void(0)" data-bligoo-tooltip-direction="vertical"> ?</a>
+                        <td>INGRESO<a class=" has-bligoo-tooltip " data-bligoo-tooltip-text="&lt;div id=&#39;dashboard-reports-visits-number-tooltip&#39;&gt;&lt;img width=&#39;219&#39; height=&#39;52&#39; src=&#39;estilos/Dashboard/face-report-description-table.gif&#39;/&gt;&lt;p&gt;Promedio de lecturas de esta semana en relación a la semana anterior&lt;/p&gt;&lt;/div&gt;" data-bligoo-tooltip-width="300" href="javascript:void(0)" data-bligoo-tooltip-direction="vertical"> ?</a>
                             <div class="bligoo-tooltip" style="width: 300px; display: none; left: 826px; top: 113px;">
                                 <div class="bligoo-tooltip-body">
                                     <div id="dashboard-reports-visits-number-tooltip">
@@ -34,7 +34,7 @@
                         </td>
                         <td class="site-grow-rate ">
                             <div class="clearfix dashboard-site-extra-data ">
-                                <div class="float-right site-rate "><img border="0" alt="" src="estilos/Dashboard/dashboard-smile-5.gif" /><span class="green rate-percent ">+300.0%</span>&nbsp;</div>
+                                <div class="float-right site-rate "><img border="0" alt="" src="estilos/Dashboard/dashboard-smile-5.gif" /><span class="green rate-percent ">ACTIVO</span>&nbsp;</div>
                                 <div class="site-recommendations float-left ">
                                     <div class="dashboard-recommendations-button "><a class=" dont-open " href="#">Ver reportes</a></div>
                                 </div>
@@ -107,7 +107,7 @@
 
                                 <div class="dashboard-site-extra-config-item float-left ">
                                     <div class="dashboard-site-extra-config-item-title dashboard-extra-config-offline-site ">
-                                        <a class=" open-bligoo-window-link " href="javascript:void(0)" data-method="windowPutOfflineSite" data-name="windowputofflinesite" data-parameters="{&#39;blogId&#39;:&#39;345969&#39;}" data-height="330" data-width="400" data-module="Blog">Gestionar Cotizaciones</a>
+                                        <a class=" open-bligoo-window-link " href="VerCotizacionesCliente.aspx" data-method="windowPutOfflineSite" data-name="windowputofflinesite" data-parameters="{&#39;blogId&#39;:&#39;345969&#39;}" data-height="330" data-width="400" data-module="Blog">Gestionar Cotizaciones</a>
                                     </div>
                                     <div class="dashboard-site-extra-config-item-desc ">
                                         <p>Gestionar las cotizaciones enviadas por clientes.</p>

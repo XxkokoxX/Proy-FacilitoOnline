@@ -24,117 +24,33 @@ public partial class pop : System.Web.UI.Page
         lblRuc.Text = Request.Cookies["dato"].Values["ruc"];
         if(!Page.IsPostBack){
 
-        cargarCombo();
+        //cargarCombo();
         
         }
     }
 
-    private void cargarCombo() {
 
-        int año = int.Parse(DateTime.Now.Year.ToString());
-        for (int i = año; i <= año+5; i++)
-        {
-            cboAño.Items.Add(i.ToString());
-        }
-        cboAño.DataBind();
-
-        
-    }
-
-    /*protected void Calendar1_SelectionChanged(object sender, EventArgs e)
-    {
-        txtFecha.Text=Calendar1.SelectedDate.ToString();
-
-    }*/
-    protected void cboAño_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        
-        cboMes.Items.Clear();
-        cboDia.Items.Clear();
-        int m;
-        if (cboAño.SelectedItem.ToString()== DateTime.Now.Year.ToString())
-        {
-             m = int.Parse(DateTime.Now.Month.ToString());
-        }
-        else {
-            m = 1;
-        }
-        
-        cboMes.Items.Add("Seleccione");
-        for (int i = m; i <= 12; i++)
-        {
-            cboMes.Items.Add(i.ToString());
-        }
-        cboMes.DataBind();
-       
-
-    }
-    protected void cboMes_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        try
-        {
-
-            cboDia.Items.Clear();
-            if (cboMes.SelectedValue.ToString() == "Seleccione"||cboAño.SelectedValue.ToString() == "Seleccione")
-            {
-                lblm.Text = "Seleccione un mes y año";
-               
-            }
-            else { 
-
-        int mes= int.Parse(cboMes.SelectedItem.ToString());
-        int año = int.Parse(cboAño.SelectedItem.ToString());
-        int n = 31;
-        switch (mes)
-        {
-            case 2: n = año % 4 == 0 ? 29 : 28; break;
-            case 4: n = 30; break;
-            case 6: n = 30; break;
-            case 9: n = 30; break;
-            case 11: n = 30; break;
-        }
-
-        int c;
-        if (cboAño.SelectedItem.ToString() == DateTime.Now.Year.ToString() && cboMes.SelectedItem.ToString() == DateTime.Now.Month.ToString())
-        {
-            c = int.Parse(DateTime.Now.Day.ToString());
-        }
-        else { c = 1; }
-
-            cboDia.Items.Add("Seleccione");
-            for (int i = c; i <= n; i++)
-            {
-
-                cboDia.Items.Add(i.ToString());
-            }
-            cboDia.DataBind();
-
-         
-            
-            }
-        }catch(Exception ex){
-            lblm.Text = ex.Message;
-        }
-    }
     protected void btnRegistrar_Click(object sender, EventArgs e)
     {
-        if (cboAño.SelectedValue.ToString() == "Seleccione" || cboMes.SelectedValue.ToString() == "Seleccione" || cboCantidad.SelectedValue.ToString() == "Seleccione"
-            || cboDia.SelectedValue.ToString() == "Seleccione")
+
+        if (Text1.Text==""||cboCantidad.SelectedIndex==0||txthora.Text=="")
         {
-            lblm.Text = "Por facor ingrese todos los datos";
+            lblm.Text = "Por favor llene todos los datos";
         }
         else {
 
         string ruc = lblRuc.Text;
         string local = lbllocal.Text;
-        string dia = cboDia.SelectedValue.ToString();
-        string mes = cboMes.SelectedValue.ToString();
-        string año = cboAño.SelectedValue.ToString();
-        int hora = int.Parse(cboHora.SelectedValue.ToString());
-        string fecha=dia+"/"+mes+"/"+año;
+        //string dia = cboDia.SelectedValue.ToString();
+        //string mes = cboMes.SelectedValue.ToString();
+        //string año = cboAño.SelectedValue.ToString();
+        int hora = int.Parse(txthora.Text.Substring(0,2));
+        string fecha = Text1.Text;
         int cantidad=int.Parse( cboCantidad.SelectedValue);
         string usuario = Context.User.Identity.Name;
         string fecha_reg= DateTime.Now.Day+"/"+DateTime.Now.Month+"/"+DateTime.Now.Year;
+
+       
 
         lblm.Text = r.RegistrarReserva(ruc,local,fecha,hora,cantidad,usuario,fecha_reg);
 
@@ -253,31 +169,4 @@ public partial class pop : System.Web.UI.Page
     
     }
 
-    protected void cboDia_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        cboHora.Items.Clear();
-        if (cboDia.SelectedValue.ToString() == "Seleccione")
-        {
-            lblm.Text = "Seleccione un Dia";
-            cboDia.Items.Clear();
-        }
-        else {
-            int h;
-            if (cboAño.SelectedItem.ToString() == DateTime.Now.Year.ToString() && cboMes.SelectedItem.ToString() == DateTime.Now.Month.ToString()
-                && cboDia.SelectedItem.ToString() == DateTime.Now.Day.ToString())
-            {
-                h = int.Parse(DateTime.Now.Hour.ToString());
-            }
-            else { h = -1; }
-
-            for (int i = h+1; i <= 23; i++)
-            {
-                cboHora.Items.Add(i.ToString());
-            }
-            cboHora.DataBind();
-        
-        }
-
-
-    }
 }

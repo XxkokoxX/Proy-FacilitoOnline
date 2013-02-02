@@ -63,7 +63,7 @@ public class Anuncios
         return tb;
     }
 
-    public String Insertar(string titulo,string descripcion, byte[] imagen,string ruc)
+    public String Insertar(string titulo,string descripcion, byte[] imagen,string ruc, string menbresia)
     {
         string msg = "";
 
@@ -74,7 +74,7 @@ public class Anuncios
         cmd.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = descripcion;
         cmd.Parameters.Add("@imagen", SqlDbType.Image).Value = imagen;
         cmd.Parameters.Add("@ruc", SqlDbType.VarChar).Value = ruc;
-
+        cmd.Parameters.Add("@membresia", SqlDbType.VarChar).Value = menbresia;
         cn.getCn.Open();
 
         try

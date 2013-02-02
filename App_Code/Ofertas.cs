@@ -17,10 +17,20 @@ public class Ofertas
 		//
 	}
 
-    public DataTable listarOfertas()
+    public DataTable listarOfertass()
     {
         DataTable dt = new DataTable();
-        SqlDataAdapter sda = new SqlDataAdapter("select * from tb_ofertas where estado = 1", cn.getCn);
+        SqlDataAdapter sda = new SqlDataAdapter("select * from tb_ofertas o join tb_cliente c on o.cliente = c.membresia", cn.getCn);
+        sda.Fill(dt);
+        return dt;
+
+    }
+
+    public DataTable listarOfertas(string cli)
+    {
+        DataTable dt = new DataTable();
+        SqlDataAdapter sda = new SqlDataAdapter("select * from tb_ofertas where estado = 1 and cliente=@cli", cn.getCn);
+        sda.SelectCommand.Parameters.Add("@cli",SqlDbType.VarChar).Value = cli;
         sda.Fill(dt);
         return dt;
     }
@@ -37,6 +47,9 @@ public class Ofertas
         cmd.Parameters.Add("@fecha_inicio", SqlDbType.DateTime).Value = doo.Fecha_inicio;
         cmd.Parameters.Add("@fecha_fin", SqlDbType.DateTime).Value = doo.Fecha_fin;
         cmd.Parameters.Add("@cliente", SqlDbType.VarChar).Value = doo.Cliente;
+        cmd.Parameters.Add("@producto", SqlDbType.Int).Value = doo.Producto;
+        cmd.Parameters.Add("@precioactual", SqlDbType.Float).Value = doo.PrecioActual;
+        cmd.Parameters.Add("@preciooferta", SqlDbType.Float).Value = doo.PrecioOferta;
 
         cn.getCn.Open();
         try
@@ -67,6 +80,9 @@ public class Ofertas
         cmd.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = doo.Descripcion;
         cmd.Parameters.Add("@fecha_inicio", SqlDbType.DateTime).Value = doo.Fecha_inicio;
         cmd.Parameters.Add("@fecha_fin", SqlDbType.DateTime).Value = doo.Fecha_fin;
+        cmd.Parameters.Add("@producto", SqlDbType.Int).Value = doo.Producto;
+        cmd.Parameters.Add("@precioactual", SqlDbType.Float).Value = doo.PrecioActual;
+        cmd.Parameters.Add("@preciooferta", SqlDbType.Float).Value = doo.PrecioOferta;
 
         cn.getCn.Open();
         try
@@ -109,5 +125,15 @@ public class Ofertas
             cn.getCn.Close();
         }
         return msg;
+    }
+
+
+    public DataTable listarOfertasxClient(string cli)
+    {
+        DataTable dt = new DataTable();
+        SqlDataAdapter sda = new SqlDataAdapter("select o.*,c.razonSocial from tb_ofertas o join tb_cliente c on o.cliente = c.membresia where o.cliente = @cli", cn.getCn);
+        sda.SelectCommand.Parameters.Add("@cli", SqlDbType.VarChar).Value = cli;
+        sda.Fill(dt);
+        return dt;
     }
 }

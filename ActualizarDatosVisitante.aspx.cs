@@ -15,14 +15,23 @@ public partial class MantenimientoVisitante : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
-            DataTable datosUsuario = usu.buscarUsuario(Context.User.Identity.Name);
-            HiddenField1.Value  = datosUsuario.Rows[0]["contraseña"].ToString();
-            HiddenField2.Value= datosUsuario.Rows[0]["tipoUsuario"].ToString();
+            if (!Context.User.Identity.IsAuthenticated)
+                {
+                    //FormsAuthentication.RedirectToLoginPage("Login_Cliente.aspx");
+                    Response.Redirect("Login_Usuario.aspx");
+                }
+                else
+                {
+                    DataTable datosUsuario = usu.buscarUsuario(Context.User.Identity.Name);
+                    HiddenField1.Value = datosUsuario.Rows[0]["contraseña"].ToString();
+                    HiddenField2.Value = datosUsuario.Rows[0]["tipoUsuario"].ToString();
+
+                    txtNombre.Text = datosUsuario.Rows[0]["nombres"].ToString();
+                    txtApellido.Text = datosUsuario.Rows[0]["apellidos"].ToString();
+                    txtDireccion.Text = datosUsuario.Rows[0]["direccion"].ToString();
+                    txtFecNac.Text = datosUsuario.Rows[0]["fechaDeNacimiento"].ToString();
+                }
             
-            txtNombre.Text = datosUsuario.Rows[0]["nombres"].ToString();
-            txtApellido.Text = datosUsuario.Rows[0]["apellidos"].ToString();
-            txtDireccion.Text = datosUsuario.Rows[0]["direccion"].ToString();
-            txtFecNac.Text = datosUsuario.Rows[0]["fechaDeNacimiento"].ToString();
         }
     }
 
@@ -36,12 +45,28 @@ public partial class MantenimientoVisitante : System.Web.UI.Page
         objUsuario.Direccion = txtDireccion.Text;
         objUsuario.FechaDeNacimiento = DateTime.Parse(txtFecNac.Text);
 
-
-         usu.registraYmodificaUsuario(objUsuario);
+        usu.registraYmodificaUsuario(objUsuario);
 
         string script = @"<script type = 'text/javascript'> alert('{0}'); </script>";
         script = string.Format(script, "Se han modificado los datos correctamente");
         ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
 
+        lblMensaje.Text = "Se ha actualizado sus datos personales con éxito";
+
+        txtNombre.Enabled = false;
+        txtApellido.Enabled = false;
+        txtDireccion.Enabled = false;
+        txtFecNac.Enabled = false;
+        btnActualizar.Enabled = false;
+        btnLimpiar.Enabled = false;
+
+    }
+
+    protected void btnLimpiar_Click(object sender, EventArgs e)
+    {
+        txtNombre.Text = string.Empty;
+        txtApellido.Text = string.Empty;
+        txtDireccion.Text = string.Empty;
+        txtFecNac.Text = string.Empty;
     }
 }

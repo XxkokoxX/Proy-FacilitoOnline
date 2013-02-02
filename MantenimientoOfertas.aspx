@@ -4,7 +4,7 @@
     <div class="line"></div> 
     <div class="article">
         <div style="background-position: left;">
-            <h2><b>Administrar Ofertas</b></h2>
+            <h2><b>Administrar Ofertas</b></h2><br />
             <table style="width: 100%; height: 143px;" class="ic_container">
                 <tbody>
                     <tr>
@@ -16,85 +16,155 @@
                                 ToolTip="Clic aqui para ingresar un nuevo usuario." 
                                 CssClass="yellow button"  />
                         </td>
-                        <td rowspan="5">                 
-                            <table style="width:100%;">
-                                <tr>
-                                    <td width="15%"><b>Oferta:</b></td>
-                                    <td width="30%">
-                                        <asp:TextBox ID="txtOferta" runat="server" Width="200px" Enabled="False"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" 
-                                            ControlToValidate="txtOferta" ErrorMessage="Ingrese una oferta." 
-                                            ToolTip="La oferta es obligatoria." ValidationGroup="RegOfertValidationGroup" 
-                                            CssClass="failureNotification"><img alt="" src="img/iconos/admiracion1.png" /></asp:RequiredFieldValidator>
-                                    </td>
-                                    <td width="20%"><b></b>
-                                        <asp:TextBox ID="txtCliente" runat="server" Visible="False"></asp:TextBox>
-                                    </td>
-                                    <td width="35%">
-                                        &nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td width="15%"><b>Fecha Inicio:</b></td>
-                                    <td width="30%">
-                                        <asp:TextBox ID="txtFechaInicio" runat="server" Width="200px" Enabled="False"></asp:TextBox>
-                                    </td>
-                                    <td width="20%"><b></b></td>
-                                    <td width="35%">
-                                        &nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td><b>Fecha Fin:</b></td>
-                                    <td>
-                                        <asp:TextBox ID="txtFechaFin" runat="server" Width="200px" Enabled="False"></asp:TextBox>
-                                    </td>
-                                    <td colspan="2">
-                                        &nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td><b>Imagen:</b></td>
-                                    <td colspan="2">
-                                        <asp:FileUpload ID="FileUpload1" runat="server" Enabled="False" /></td>
-                                    <td>
+                        <td rowspan="7">     
+                            <asp:ScriptManager ID="ScriptManager1" runat="server">
+                            </asp:ScriptManager>        
+                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                <ContentTemplate>
+                                    <table style="width:100%;">
+                                        <tr>
+                                            <td width="15%"><b>Oferta:</b></td>
+                                            <td width="30%">
+                                                <asp:TextBox ID="txtOferta" runat="server" Width="200px" Enabled="False" 
+                                                    CssClass="campo-field"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" 
+                                                    ControlToValidate="txtOferta" ErrorMessage="Ingrese una oferta." 
+                                                    ToolTip="La oferta es obligatoria." ValidationGroup="RegOfertValidationGroup" 
+                                                    CssClass="failureNotification"><img alt="" src="img/iconos/admiracion1.png" /></asp:RequiredFieldValidator>
+                                            </td>
+                                            <td width="20%"><b></b>
+                                                <asp:TextBox ID="txtCliente" runat="server" Visible="False"></asp:TextBox>
+                                            </td>
+                                            <td width="35%">
+                                                &nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="15%"><b>Fecha Inicio:</b></td>
+                                            <td width="30%">
+                                                <asp:TextBox ID="txtFechaInicio" runat="server" Width="200px" Enabled="False" 
+                                                    CssClass="campo-field"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" 
+                                                    ControlToValidate="txtFechaInicio" CssClass="failureNotification" 
+                                                    ErrorMessage="Ingrese la fecha inicio." ToolTip="La fecha inicio es obligatoria." 
+                                                    ValidationGroup="RegOfertValidationGroup"><img alt="" 
+                                                    src="img/iconos/admiracion1.png" /></asp:RequiredFieldValidator>
+                                            </td>
+                                            <td width="20%"><b></b></td>
+                                            <td width="35%">
+                                                &nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Fecha Fin:</b></td>
+                                            <td>
+                                                <asp:TextBox ID="txtFechaFin" runat="server" Width="200px" Enabled="False" 
+                                                    CssClass="campo-field"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" 
+                                                    ControlToValidate="txtFechaFin" CssClass="failureNotification" 
+                                                    ErrorMessage="Ingrese la fecha fin." ToolTip="La fecha fin es obligatoria." 
+                                                    ValidationGroup="RegOfertValidationGroup"><img alt="" 
+                                                    src="img/iconos/admiracion1.png" /></asp:RequiredFieldValidator>
+                                            </td>
+                                            <td colspan="2">
+                                                &nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Categoría:</b></td>
+                                            <td colspan="2">
+                                                <asp:DropDownList ID="cboCategoria" runat="server" AutoPostBack="True" 
+                                                    onselectedindexchanged="cboCategoria_SelectedIndexChanged" Enabled="False" 
+                                                    CssClass="campo-field">
+                                                </asp:DropDownList>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Producto</b></td>
+                                            <td colspan="2">
+                                                <asp:DropDownList ID="cboProducto" runat="server" AutoPostBack="True" 
+                                                    onselectedindexchanged="cboProducto_SelectedIndexChanged" Enabled="False" 
+                                                    CssClass="campo-field">
+                                                </asp:DropDownList>
+                                            </td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Precio Actual s/.</b></td>
+                                            <td colspan="2">
+                                                <asp:Label ID="lblPrecioActual" runat="server"></asp:Label>
+                                            </td>
+                                            <td>
                                             
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><b>Fecha de Registro:</b></td>
-                                    <td>
-                                        <asp:Label ID="lblFechaRegistro" runat="server"></asp:Label>
-                                        </td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td><b>Descripción:</b></td>
-                                    <td>
-                                        &nbsp;</td>
-                                    <td>
-                                        &nbsp;</td>
-                                    <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3" rowspan="4">
-                                        <asp:TextBox ID="txtDescripcion" runat="server" Enabled="False" Height="90px" 
-                                            TextMode="MultiLine" Width="500px"></asp:TextBox>
-                                    </td>
-                                    <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="4"><asp:Label ID="lblMensaje" runat="server" CssClass="failureNotification"></asp:Label>
-                                    </td>
-                                </tr>
-                            </table>
+                                                &nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Nuevo Precio s/.</b></td>
+                                            <td>
+                                                <asp:TextBox ID="txtPrecioNuevo" runat="server" Enabled="False" 
+                                                    CssClass="campo-field"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" 
+                                                    ControlToValidate="txtPrecioNuevo" CssClass="failureNotification" 
+                                                    ErrorMessage="Ingrese el precio de oferta." ToolTip="El precio es obligatorio." 
+                                                    ValidationGroup="RegOfertValidationGroup"><img alt="" 
+                                                    src="img/iconos/admiracion1.png" /></asp:RequiredFieldValidator>
+                                            </td>
+                                            <td>
+                                                &nbsp;</td>
+                                            <td>
+                                            
+                                                &nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Fecha de Registro:</b></td>
+                                            <td>
+                                                <asp:Label ID="lblFechaRegistro" runat="server"></asp:Label>
+                                                </td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Descripción:</b></td>
+                                            <td>
+                                                &nbsp;</td>
+                                            <td>
+                                                &nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3" rowspan="7">
+                                                <asp:TextBox ID="txtDescripcion" runat="server" Enabled="False" Height="90px" 
+                                                    TextMode="MultiLine" Width="500px" CssClass="campo-field"></asp:TextBox>
+                                            </td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4"><b><asp:Label ID="lblMensaje" runat="server" CssClass="failureNotification"></asp:Label></b>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </ContentTemplate>
+                                <Triggers>
+                                    <asp:AsyncPostBackTrigger ControlID="cboCategoria" 
+                                        EventName="SelectedIndexChanged" />
+                                </Triggers>
+                            </asp:UpdatePanel>
                         </td>
                     </tr>
                     <tr>
@@ -114,8 +184,16 @@
                             <img src="img/iconos/salir.png" alt="" />
                             <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="100px" 
                                 ForeColor="#FF3300" ToolTip="Click aquí para cancelar." 
-                                PostBackUrl="~/PanelSocio.aspx" CssClass="yellow button" />
+                                PostBackUrl="~/PanelInicio.aspx" CssClass="yellow button" />
                         </td>
+                    </tr>
+                    <tr>
+                        <td style="border-right: 1px dotted silver;width: 165px; height: 45px;">
+                            &nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td style="border-right: 1px dotted silver;width: 165px; height: 45px;">
+                            &nbsp;</td>
                     </tr>
                     <tr>
                         <td style="border-right: 1px dotted silver;width: 165px; height: 45px;">
@@ -136,12 +214,12 @@
             ValidationGroup="RegOfertValidationGroup" CssClass="error" 
             DisplayMode="List" HeaderText="Error Ingrese los siguientes datos:" 
             ShowMessageBox="True" />
-    </div>
+    </div><br />
 
-    <div class="line"></div>   
+    <div class="line"></div><br />
         
     <div class="article">
-        <table style="width: 100%;">
+        <table style="width: 100%;" class="ic_container">
             <tr>
                 <td align="center"><h3><b>Lista de Ofertas</b></h3></td>
             </tr>
@@ -192,13 +270,15 @@
                             <asp:boundfield datafield="fechaRegistro" headertext="Fecha de Registro">
                             </asp:boundfield>
                         
-                            <asp:TemplateField HeaderText="Imagen">
-                                <ItemTemplate>
-                                    <asp:Image ID="Image3" runat="server" Height="84px" 
-                                        ImageUrl='<%# Eval("id", "img/ofertas/{0}.jpg") %>' Width="84px" />
-                                </ItemTemplate>
-                            </asp:TemplateField>
-
+                            <asp:BoundField DataField="producto" HeaderText="Producto" />
+                            <asp:BoundField DataField="precioActual" HeaderText="Precio Original" >
+                            <ItemStyle BackColor="#FFFF99" />
+                            </asp:BoundField>
+                            <asp:BoundField DataField="precioOferta" HeaderText="Precio de Oferta" >
+                        
+                            <ItemStyle BackColor="#FF3300" />
+                            </asp:BoundField>
+                        
                             <asp:CommandField ButtonType="Image" DeleteImageUrl="~/img/iconos/eli.png" 
                                 ShowDeleteButton="True" HeaderText="Eliminar" >
                             <HeaderStyle HorizontalAlign="Center" />

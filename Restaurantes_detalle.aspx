@@ -77,110 +77,497 @@
     
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Width="100%"
         BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px"
-        CellPadding="4" ForeColor="Black" GridLines="Horizontal" onselectedindexchanged="GridView1_SelectedIndexChanged"  
+        CellPadding="4" ForeColor="Black" GridLines="Horizontal" 
+        CssClass="ic_container" ShowHeader="False" PageSize="1" onrowdatabound="GridView1_RowDataBound"  
        >
         <Columns>
 
-           <asp:CommandField ButtonType="Button" 
-                ShowSelectButton="True" SelectText="Reservar" />
-
             <asp:TemplateField ControlStyle-BorderStyle="None" FooterStyle-BorderStyle="None"
-                HeaderStyle-BorderStyle="None" ItemStyle-BorderStyle="None">
+                HeaderStyle-BorderStyle="None" ItemStyle-BorderStyle="None" 
+                HeaderText="Descripción">
                 <ItemTemplate>
-                    <table style="width: 100%;" class="ic_container">
+                    <table style="width: 100%;">
                         <tr>
-                            <td width="10%">
-                                <div id="user-avatar">
-                                    <asp:Image ID="Image1" runat="server" Height="80px" ImageUrl='<%# Eval("membresia", "img/avatar/{0}.jpg") %>'
-                                        Width="80px" />
-                                </div>
-                            </td>
-                            <td style="width: 47px">
-                                <asp:Label ID="lblRazonSocial" runat="server" Style="font-weight: bold; font-size: large"
-                                    Text='<%# Eval("razonSocial") %>'></asp:Label>
-                                  <asp:Label ID="lblMembresia" runat="server" Text='<%# Eval("membresia") %>' 
+                            <td>
+                                <a>
+                                <h4>
+                                    Zona para realizar tus Reservas Online</h4>
+                                </a></td>
+                            <td width="50%">
+                                <asp:Label ID="lblMembresia" runat="server" Text='<%# Eval("membresia") %>' 
                                     Visible="False"></asp:Label>
-
-
-
+                                <asp:Label ID="lblCiudad" runat="server" Text='<%# Eval("ciudad") %>' 
+                                    Visible="False"></asp:Label>
+                                <asp:Button ID="btnReservar" runat="server" onclick="btnReservar_Click" 
+                                    Text="Click Aquí para realizar tu reserva" CssClass="blue button" />
                             </td>
-                            <td width="50%" rowspan="7">
-                                <div id="map_canvas"  style="height:236px; width:99%">                             
-                                </div>
-                            </td>
+                            <td width="20%">
+                                &nbsp;</td>
                         </tr>
                         <tr>
-                            <td width="10%">
+                            <td colspan="2">
+                                
+                                <table style="width:100%;">
+                                    <tr>
+                                        <td width="10%">
+                                            &nbsp;</td>
+                                        <td>
+                                            &nbsp;</td>
+                                        <td>
+                                            &nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div ID="user-avatar">
+                                                <asp:Image ID="Image1" runat="server" Height="90px" 
+                                                    ImageUrl='<%# Eval("membresia", "img/avatar/{0}.jpg") %>' Width="150px" />
+                                            </div>
+                                        </td>
+                                        <td style="font-weight: bold; font-size: x-large">
+                                            <asp:Label ID="lblTitulo" runat="server" Text='<%# Eval("razonSocial") %>'></asp:Label>
+                                        </td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 713px">
+                                            &nbsp;</td>
+                                        <td>
+                                            &nbsp;</td>
+                                        <td>
+                                            &nbsp;</td>
+                                    </tr>
+                                </table>
+                                
+                            </td>
+                            <td width="20%">
                                 &nbsp;
                             </td>
-                            <td style="width: 47px">
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                            <td width="50%">
+                                &nbsp;</td>
+                            <td width="20%">
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td valign="top">
+                                <table style="width:100%;" class="ic_container">
+                                    <tr>
+                                        <td colspan="3">
+                                            <img alt="" src="img/salones/01.jpg" 
+                                            style="width: 230px; height: 200px" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            &nbsp;</td>
+                                        <td>
+                                            &nbsp;</td>
+                                        <td>
+                                            &nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img alt="" src="img/salones/01.jpg" 
+                                            style="width: 50px; height: 50px" />
+                                        </td>
+                                        <td>
+                                            &nbsp;</td>
+                                        <td>
+                                            &nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            &nbsp;</td>
+                                        <td>
+                                            &nbsp;</td>
+                                        <td>
+                                            &nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" style="font-weight: bold; font-size: large">Tipo de Comida</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <asp:Label ID="lblTipoComida" runat="server" 
+                                                Text='<%# Eval("listadoDeProductos") %>'></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            &nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" style="font-weight: bold; font-size: large">Tipo de Local</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <img alt="" src="img/iconos/tipoRestaurante.png" 
+                            style="width: 83px; height: 82px" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" style="font-weight: bold; font-size: large">Precios</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3"><a href="#">S/. 20 - S/. 40</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            &nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" style="font-weight: bold; font-size: large">Sitio Web</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <a href='<%# Eval("sitioWeb") %>'>
+                                            <asp:Label ID="lblSitioWeb" runat="server" Text='<%# Eval("sitioWeb") %>'></asp:Label>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            &nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" style="font-weight: bold; font-size: large">
+                                            Forma de Pago</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <img alt="" src="img/pagos/americaexpress.png" 
+                            style="width: 66px; height: 43px" title="American Express" />
+                                            <img alt="" 
+                            src="img/pagos/dinners.png" style="width: 66px; height: 43px" title="Dinners" />
+                                            <img alt="" src="img/pagos/mastercad.png" 
+                            style="width: 66px; height: 43px" title="Mastercards" />
+                                            <img alt="" src="img/pagos/efectivo.png" 
+                            style="width: 66px; height: 43px" />
+                                            <img alt="" 
+                            src="img/pagos/visa.png" style="width: 66px; height: 44px" title="Visa" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td valign="top">
+                                <table style="width:100%;" class="ic_container">
+                                    <tr>
+                                        <td colspan="3">
+                                            <asp:Label ID="lblRazonSocial" runat="server" 
+                                                Style="font-weight: bold; font-size: large" 
+                                                Text='<%# Eval("razonSocial") %>'></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <asp:Label ID="lblActividad" runat="server" 
+                                                Text='<%# Eval("actividadPreponderante") %>'></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            &nbsp;</td>
+                                        <td>
+                                            &nbsp;</td>
+                                        <td>
+                                            &nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            &nbsp;</td>
+                                        <td>
+                                            &nbsp;</td>
+                                        <td>
+                                            &nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" style="font-weight: bold; font-size: large">Ubicación</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <asp:Label ID="lblCalle" runat="server" Text='<%# Eval("calle") %>'></asp:Label><br />
+                                            <asp:Label ID="lblMunicipio" runat="server" Text='<%# Eval("municipio") %>'></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <div ID="map_canvas" style="height:245px; width:99%">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            &nbsp;</td>
+                                        <td>
+                                            &nbsp;</td>
+                                        <td align="right"><a>Imprimir Mapa</a><img src="img/iconos/impre.png" style="height: 20px" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" style="font-weight: bold; font-size: large">
+                                            Contacto</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="img/iconos/celu.png" /><a>(51-1)3647010</a></td>
+                                        <td>
+                                            &nbsp;</td>
+                                        <td>
+                                            &nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" style="font-weight: bold; font-size: large">
+                                            Email</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <img src="img/iconos/car.png" /><a href="#">elsotano.restaurante@gmail.com</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" style="font-weight: bold; font-size: large">
+                                            Servicios</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <table style="width:100%;">
+                                                <tr>
+                                                    <td style="width: 23px">
+                                                        <img alt="" src="img/iconos/buena.png" 
+                                                        style="width: 14px; height: 11px" />
+                                                    </td>
+                                                    <td>
+                                                        Reservas</td>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 23px">
+                                                        <img alt="" src="img/iconos/buena.png" 
+                                                        style="width: 14px; height: 11px" />
+                                                    </td>
+                                                    <td>
+                                                        Estacionamiento</td>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 23px">
+                                                        <img alt="" src="img/iconos/buena.png" 
+                                                        style="width: 14px; height: 11px" />
+                                                    </td>
+                                                    <td>
+                                                        Delivery</td>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 23px">
+                                                        <img alt="" src="img/iconos/buena.png" 
+                                                        style="width: 14px; height: 11px" />
+                                                    </td>
+                                                    <td>
+                                                        Bar</td>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 23px">
+                                                        <img alt="" src="img/iconos/buena.png" 
+                                                        style="width: 14px; height: 11px" />
+                                                    </td>
+                                                    <td>
+                                                        Eventos</td>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 23px">
+                                                        <img alt="" src="img/iconos/buena.png" 
+                                                        style="width: 14px; height: 11px" />
+                                                    </td>
+                                                    <td>
+                                                        Ofertas - Promociones</td>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 23px">
+                                                        <img alt="" src="img/iconos/buena.png" 
+                                                        style="width: 14px; height: 11px" />
+                                                    </td>
+                                                    <td>
+                                                        Cotizaciones</td>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 23px">
+                                                        <img alt="" src="img/iconos/buena.png" 
+                                                        style="width: 14px; height: 11px" />
+                                                    </td>
+                                                    <td>
+                                                        Plato a la Carta</td>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 23px">
+                                                        <img alt="" src="img/iconos/buena.png" 
+                                                        style="width: 14px; height: 11px" />
+                                                    </td>
+                                                    <td>
+                                                        Menú Ejecutivo</td>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 23px">
+                                                        <img alt="" src="img/iconos/buena.png" 
+                                                        style="width: 14px; height: 11px" />
+                                                    </td>
+                                                    <td>
+                                                        Menú para niños</td>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 23px">
+                                                        <img alt="" src="img/iconos/buena.png" 
+                                                        style="width: 14px; height: 11px" />
+                                                    </td>
+                                                    <td>
+                                                        Música de fondo</td>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 23px">
+                                                        <img alt="" src="img/iconos/buena.png" 
+                                                        style="width: 14px; height: 11px" />
+                                                    </td>
+                                                    <td>
+                                                        Silla para bebés</td>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 23px">
+                                                        <img alt="" src="img/iconos/buena.png" 
+                                                        style="width: 14px; height: 11px" />
+                                                    </td>
+                                                    <td>
+                                                        Wi-Fi</td>
+                                                    <td>
+                                                        &nbsp;</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            &nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            &nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            &nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            &nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            &nbsp;</td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td valign="top">
+                                <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" 
+                                    >
+                                    <Columns>
+                                        <asp:TemplateField HeaderText="Restaurantes Similares">
+                                            <ItemTemplate>
+                                                <table style="width:100%;" class="ic_container">
+                                                    <tr>
+                                                        <td>
+                                                            &nbsp;</td>
+                                                        <td>
+                                                            &nbsp;</td>
+                                                        <td>
+                                                            &nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td rowspan="2" width="80px" >
+                                                            
+                                                            <div ID="user-avatar">
+                                                                <asp:Image ID="imageRS" runat="server" Height="80px" 
+                                                                    ImageUrl='<%# Eval("membresia", "img/avatar/{0}.jpg") %>' Width="80px" />
+                                                            </div>
+                                                            
+                                                        </td>
+                                                        <td colspan="2">
+                                                            <b><asp:Label ID="lblRazonSocialRS" runat="server" 
+                                                                Text='<%# Bind("razonSocial") %>'></asp:Label></b>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <asp:Label ID="lblCiudadRS" runat="server" Text='<%# Bind("ciudad") %>'></asp:Label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            &nbsp;</td>
+                                                        <td>
+                                                            &nbsp;</td>
+                                                        <td>
+                                                            &nbsp;</td>
+                                                    </tr>
+                                                </table>
+                                            </ItemTemplate>
+                                            <EditItemTemplate>
+                                                <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("razonSocial") %>'></asp:TextBox>
+                                            </EditItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                </asp:GridView>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
                                 &nbsp;
                             </td>
-                        </tr>
-                        <tr>
-                            <td width="10%" style="height: 25px">
-                                <b>Local: </b>
+                            <td>
+                                &nbsp;
                             </td>
-                            <td style="width: 47px; height: 25px;">
-                                <asp:Label ID="lblMunicipio" runat="server" Text='<%# Eval("municipio") %>'></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="10%" style="height: 25px">
-                                <b>Direccion: </b>
-                            </td>
-                            <td style="width: 47px; height: 25px;">
-                                <asp:Label ID="lblCalle" runat="server" Text='<%# Eval("calle") %>'></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="10%" style="height: 25px">
-                                <b>Sitio Web: </b>
-                            </td>
-                            <td style="width: 47px; height: 25px;">
-                                <a href="<%# Eval("sitioWeb") %>"><asp:Label ID="lblSitioWeb" runat="server" Text='<%# Eval("sitioWeb") %>'></asp:Label></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="10%" style="height: 25px">
-                                <b>Actividad: </b>
-                            </td>
-                            <td style="width: 47px; text-align: justify; height: 25px;">
-                                <asp:Label ID="lblActividad" runat="server" Text='<%# Eval("actividadPreponderante") %>'></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="10%" style="height: 24px">
-                                <b>Productos: </b>
-                            </td>
-                            <td style="width: 47px; text-align: justify; height: 24px;">
-                                <asp:Label ID="lblProductos" runat="server" Text='<%# Eval("listadoDeProductos") %>'></asp:Label>
+                            <td>
+                                &nbsp;
                             </td>
                         </tr>
                     </table>
+                    <br /><br />
                 </ItemTemplate>
                 <ControlStyle BorderStyle="None"></ControlStyle>
                 <FooterStyle BorderStyle="None"></FooterStyle>
                 <HeaderStyle BorderStyle="None"></HeaderStyle>
                 <ItemStyle BorderStyle="None"></ItemStyle>
             </asp:TemplateField>
+
         </Columns>
         <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
         <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
         <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-        <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+        <SelectedRowStyle Font-Bold="True" />
         <SortedAscendingCellStyle BackColor="#F7F7F7" />
         <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
         <SortedDescendingCellStyle BackColor="#E5E5E5" />
         <SortedDescendingHeaderStyle BackColor="#242121" />
 
-        <SortedAscendingCellStyle BackColor="#F7F7F7"></SortedAscendingCellStyle>
-
-        <SortedAscendingHeaderStyle BackColor="#4B4B4B"></SortedAscendingHeaderStyle>
-
-        <SortedDescendingCellStyle BackColor="#E5E5E5"></SortedDescendingCellStyle>
-
-        <SortedDescendingHeaderStyle BackColor="#242121"></SortedDescendingHeaderStyle>
     </asp:GridView>
     <asp:HiddenField ID="lblCalle" runat="server"/>
     <asp:HiddenField ID="lblMunicipio" runat="server"/>

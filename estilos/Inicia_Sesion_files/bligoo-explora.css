@@ -9,7 +9,7 @@ body#bligoo-wrapper
     font-family: "Helvetica Neue" ,Helvetica,Arial,sans-serif;
     font-size: 12px;
     color: #000;
-    background-image: url('../../img/Fondo_Top2.jpg');
+    background-image: url('Fondo_Top2.jpg');
     background-repeat: repeat-x;
 }
 .clear{clear:both;}
@@ -231,7 +231,17 @@ div.content-row-mini .content-community a{color:#666;}
 #explora-page-center .explore-search-box-container .explore-search-suggestions{padding-top:10px;color:#fff;}
 #explora-page-center .explore-search-box-container .explore-search-suggestions a{color:#fff;font-weight:bold;text-decoration:underline;}
 #explora-page-center .explore-search-box-container .explore-search-suggestions a:hover{text-decoration:none;}
-#bligoo-footer{clear:both;background-image:url('/static/images/bligoo/media/bligoo-footer-sea.gif');background-repeat:repeat-x;height:auto;color:#cfe4f5;background-color:transparent;width:100%;padding:20px 0 0 0;}
+#bligoo-footer
+{
+    clear: both;
+    background-image: url('Fondo_Pie.jpg');
+    background-repeat: repeat-x;
+    height: auto;
+    color: #cfe4f5;
+    background-color: transparent;
+    width: 100%;
+    padding: 20px 0 0 0;
+}
 #bligoo-footer .bligoo-footer-wrapper{width:100%;background:#88b6da;border-bottom:1px solid #4C85B2;}
 #bligoo-footer .bligoo-footer-container{width:900px;margin:0 auto;padding:35px 0 80px 0;}
 #bligoo-footer a{color:#fff;text-decoration:none;}

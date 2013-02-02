@@ -7,7 +7,7 @@
                 <thead>
                     <tr class=" even ">
                         <td>Panel de Control VISITANTE</td>
-                        <td>Lecturas<a class=" has-bligoo-tooltip " data-bligoo-tooltip-text="&lt;div id=&#39;dashboard-reports-visits-number-tooltip&#39;&gt;&lt;img width=&#39;219&#39; height=&#39;52&#39; src=&#39;estilos/Dashboard/face-report-description-table.gif&#39;/&gt;&lt;p&gt;Promedio de lecturas de esta semana en relación a la semana anterior&lt;/p&gt;&lt;/div&gt;" data-bligoo-tooltip-width="300" href="javascript:void(0)" data-bligoo-tooltip-direction="vertical"> ?</a>
+                        <td>INGRESÓ<a class=" has-bligoo-tooltip " data-bligoo-tooltip-text="&lt;div id=&#39;dashboard-reports-visits-number-tooltip&#39;&gt;&lt;img width=&#39;219&#39; height=&#39;52&#39; src=&#39;estilos/Dashboard/face-report-description-table.gif&#39;/&gt;&lt;p&gt;Promedio de lecturas de esta semana en relación a la semana anterior&lt;/p&gt;&lt;/div&gt;" data-bligoo-tooltip-width="300" href="javascript:void(0)" data-bligoo-tooltip-direction="vertical"> ?</a>
                             <div class="bligoo-tooltip" style="width: 300px; display: none; left: 826px; top: 113px;">
                                 <div class="bligoo-tooltip-body">
                                     <div id="dashboard-reports-visits-number-tooltip">
@@ -25,7 +25,7 @@
                         <td class="site-url ">
                             <div class="site-row ">
                                 <div class="site-basic-info ">
-                                    <strong>Buscar Productos</strong>&nbsp;<a class=" site-go-link dont-open " href="#" title="Abrir este sitio en una ventana nueva">Ver &#8594;</a>
+                                    <strong>Buscar Productos</strong>&nbsp;<a class=" site-go-link dont-open " href="Restaurantes.aspx" title="Abrir este sitio en una ventana nueva">Ver &#8594;</a>
                                     <div class="clear "></div>
                                 </div>
                                 <div class="site-op "><a class=" dashboard-site-more-options " href="javascript:void(0)" data-target-id="site-extra-config-345969" data-blog="345969">Más opciones</a></div>
@@ -34,7 +34,7 @@
                         </td>
                         <td class="site-grow-rate ">
                             <div class="clearfix dashboard-site-extra-data ">
-                                <div class="float-right site-rate "><img border="0" alt="" src="estilos/Dashboard/dashboard-smile-5.gif" /><span class="green rate-percent ">+300.0%</span>&nbsp;</div>
+                                <div class="float-right site-rate "><img border="0" alt="" src="estilos/Dashboard/dashboard-smile-5.gif" /><span class="green rate-percent ">Activo</span>&nbsp;</div>
                                 <div class="site-recommendations float-left ">
                                     <div class="dashboard-recommendations-button "><a class=" dont-open " href="#">Ver reportes</a></div>
                                 </div>
@@ -66,7 +66,7 @@
 
                                 <div class="dashboard-site-extra-config-item float-left ">
                                     <div class="dashboard-site-extra-config-item-title dashboard-extra-config-domain-site ">
-                                        <a class=" open-bligoo-window-link " href="javascript:void(0)" data-method="windowDashboardDomainChange" data-name="windowdashboarddomainchange" data-parameters="{&#39;blogId&#39;:&#39;345969&#39;}" data-height="350" data-width="400" data-module="Blog">Ofertas Clientes</a>
+                                        <a class=" open-bligoo-window-link " href="ConsultarOfertas.aspx" data-method="windowDashboardDomainChange" data-name="windowdashboarddomainchange" data-parameters="{&#39;blogId&#39;:&#39;345969&#39;}" data-height="350" data-width="400" data-module="Blog">Ofertas Clientes</a>
                                     </div>
                                     <div class="dashboard-site-extra-config-item-desc ">
                                         <p>Consultar reportes de las ofertas que ofrecen las empresa registradas en la aplicación.</p>
@@ -75,7 +75,7 @@
 
                                 <div class="dashboard-site-extra-config-item float-left ">
                                     <div class="dashboard-site-extra-config-item-title dashboard-extra-config-site-removeads ">
-                                        <a href="javascript:void(0)">Eventos Clientes</a></div>
+                                        <a href="ConsultarEventos.aspx">Eventos Clientes</a></div>
                                     <div class="dashboard-site-extra-config-item-desc ">
                                         <p>Consultar reportes de los eventos que ofrecen los empresas registrados en la aplicación..</p>
                                         <div class="dashboard-site-pro-badge  ">
@@ -107,7 +107,7 @@
 
                                 <div class="dashboard-site-extra-config-item float-left ">
                                     <div class="dashboard-site-extra-config-item-title dashboard-extra-config-offline-site ">
-                                        <a class=" open-bligoo-window-link " href="javascript:void(0)" data-method="windowPutOfflineSite" data-name="windowputofflinesite" data-parameters="{&#39;blogId&#39;:&#39;345969&#39;}" data-height="330" data-width="400" data-module="Blog">Enviar Cotización</a>
+                                        <a class=" open-bligoo-window-link " href="EnviarCotizacion.aspx" data-method="windowPutOfflineSite" data-name="windowputofflinesite" data-parameters="{&#39;blogId&#39;:&#39;345969&#39;}" data-height="330" data-width="400" data-module="Blog">Enviar Cotización</a>
                                     </div>
                                     <div class="dashboard-site-extra-config-item-desc ">
                                         <p>Enviar una solicitud de cotización a las empresas que seleccione.</p>
@@ -116,9 +116,9 @@
 
                                 <div class="dashboard-site-extra-config-item float-left ">
                                     <div class="dashboard-site-extra-config-item-title dashboard-extra-config-theme-edit ">
-                                        <a class=" open-bligoo-window-link " href="javascript:void(0)" data-method="windowDashboardThemeEdit" data-name="windowdashboardthemeedit" data-parameters="{&#39;blogId&#39;:&#39;345969&#39;}" data-height="120" data-width="400" data-module="Blog">Cotizaciones Recibidas</a>
+                                        <a class=" open-bligoo-window-link " href="CotizacionesRecibidas.aspx" data-method="windowDashboardThemeEdit" data-name="windowdashboardthemeedit" data-parameters="{&#39;blogId&#39;:&#39;345969&#39;}" data-height="120" data-width="400" data-module="Blog">Cotizaciones Recibidas</a>
                                     </div>
-                                    <div class="dashboard-site-extra-config-item-desc "><p>Consultar las rsespuestas de los clientes en base a la solicitud de cotización enviada.</p></div>
+                                    <div class="dashboard-site-extra-config-item-desc "><p>Consultar las respuestas de los clientes en base a la solicitud de cotización enviada.</p></div>
                                 </div>
 
                                 <div class="clear "></div>
@@ -141,24 +141,23 @@
                     <tr class=" even ">
                         <td>
                             <div class="title">Reportes, estadísticas y guías para tu web</div>
-                            <div class="body"><img src="./Tus sitios en Bligoo.com_files/cayuda-1.jpg" style="float:left;height: 50px;width:50px;">Selecciona uno de los sitios de tu dashboard para ver reportes y nuevas funciones para mejorarlos. <br>Podrás conocer lo que sucede en tus sitios, ver quienes te visitan y más.</div>
+                            <div class="body"><img src="estilos/Dashboard/cayuda-1.jpg" style="float:left;height: 50px;width:50px;">Selecciona uno de los sitios de tu dashboard para ver reportes y nuevas funciones para mejorarlos. <br>Podrás conocer lo que sucede en tus sitios, ver quienes te visitan y más.</div>
                         </td>
-                        
                         <td>
                             <div class="title">Consejos de Facilito para mejorar tu negocio</div>
-                            <div class="body"><img src="./Tus sitios en Bligoo.com_files/cayuda-2.jpg" style="float:left;height: 50px;width:50px;">Consejos y artículos de expertos que te ayudarán a 
+                            <div class="body"><img src="estilos/Dashboard/cayuda-2.jpg" style="float:left;height: 50px;width:50px;">Consejos y artículos de expertos que te ayudarán a 
                                 hacer más conocido tu negocio. El equipo de Facilito, a tu disposición </div>
                             <div class="link"><a href="#">Ir al Blog de Facilito »</a></div>
                         </td>
                         <td>
                             <div class="title">¿Tienes dudas o ideas? Aquí te escuchamos</div>
-                            <div class="body"><img src="./Tus sitios en Bligoo.com_files/cayuda-3.jpg" style="float:left;height: 50px;width:50px;">Cocina junto a nosotros la mejor receta para 
+                            <div class="body"><img src="estilos/Dashboard/cayuda-3.jpg" style="float:left;height: 50px;width:50px;">Cocina junto a nosotros la mejor receta para 
                                 crecer tu negocio. ¿Tienes dudas, ideas o comentarios? escribelas aquí</div>
                             <div class="link"><a href="#">Ir a la cocina de Facilito »</a></div>
                         </td>
                         <td>
                             <div class="title">Un completo sitio de ayuda para ti</div>
-                            <div class="body"><img src="./Tus sitios en Bligoo.com_files/cayuda-4.jpg" style="float:left;height: 50px;width:50px;">Revisa preguntas frecuentes o busca información sobre un tema específico. Una completa guía de ayuda en 
+                            <div class="body"><img src="estilos/Dashboard/cayuda-4.jpg" style="float:left;height: 50px;width:50px;">Revisa preguntas frecuentes o busca información sobre un tema específico. Una completa guía de ayuda en 
                                 Facilito.</div>
                             <div class="link"><a href="#">Ir al sitio de ayuda »</a></div>
                         </td>

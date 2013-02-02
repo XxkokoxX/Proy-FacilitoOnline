@@ -66,9 +66,16 @@ public partial class Registrar : System.Web.UI.Page
             Cr.MandarCorreo(mnsj);
             Enviado = true;
             // Mostrar mensaje
-            string msg2 = "El Mail se ha Enviado a su correo electronico Correctamente" + " Listo!!";
+            /*string msg2 = "El Mail se ha Enviado a su correo electronico Correctamente" + " Listo!!";
             string script = @"<script type='text/javascript'> alert('{0}'); </script>";
             script = string.Format(script, msg2);
+            ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);*/
+
+            // Mostrar mensaje y retornar
+            string script = @"<script type='text/javascript'>
+                                    alert('El Mail se ha Enviado a su correo electrónico Correctamente. Listo!!');
+                                    window.location = 'Restaurantes.aspx';
+                              </script>";
             ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
         }
         catch (Exception ex)
@@ -108,8 +115,8 @@ public partial class Registrar : System.Web.UI.Page
 
         myBuilder.Append("<tr>");
         myBuilder.Append("<td colspan='2'>");
-        myBuilder.Append("<a href='http://localhost:1152/FacilitoOnline/ValidarCuenta.aspx'>");
-        myBuilder.Append("http://localhost:1152/FacilitoOnline/ValidarCuenta.aspx");
+        myBuilder.Append("<a href='http://localhost:8901/Proy-FacilitoOnline/ValidarCuenta.aspx'>");
+        myBuilder.Append("http://localhost:8901/Proy-FacilitoOnline/ValidarCuenta.aspx");
         myBuilder.Append("</a>");
         myBuilder.Append("</td>");
         myBuilder.Append("</tr>");

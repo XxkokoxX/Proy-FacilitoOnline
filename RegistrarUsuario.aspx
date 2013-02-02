@@ -8,6 +8,7 @@
     <link href="estilos/Dashboard/stylesheet.css" rel="stylesheet" type="text/css" />
     <link href="estilos/Dashboard/bligoo-dashboard.css" rel="stylesheet" type="text/css" />
     <script src="estilos/Dashboard/logged.js" type="text/javascript"></script>
+    <link href="estilos/Botones/Modelo01/estilo.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -24,7 +25,7 @@
                             <div class="clearfix" id="user-text2">
                                 Al registrarte gratuitamente en FACILITO Online, podrás aparecer en el listado de proveedores de tus productos más importantes. Para que los usuarios que visitan nuestro portal puedan contactarte fácilmente, es importante que tus datos estén completos. Si quieres saber otros beneficios de nuestro portal <a href="#">visita este enlace</a>.
                                 Nota: Los campos marcados con asterisco son obligatorios (*)
-                            </div>
+                                <a href="Restaurantes.aspx">Explorar FacilitoOnline.com</a></div>
                         </div>
                     </div>
                     
@@ -48,7 +49,8 @@
                                 </tr>
                                 <tr>
                                     <td width="33%">
-                                        <asp:TextBox ID="txtNombres" runat="server" Width="200px"></asp:TextBox>
+                                        <asp:TextBox ID="txtNombres" runat="server" Width="200px" 
+                                            CssClass="campo-field"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                                              ControlToValidate="txtNombres" 
                                              CssClass="failureNotification" 
@@ -56,7 +58,8 @@
                                              ValidationGroup="RegistrarUsuValidationGroup">*</asp:RequiredFieldValidator>
                                     </td>
                                     <td width="33%">
-                                        <asp:TextBox ID="txtApellidos" runat="server" Width="200px"></asp:TextBox>
+                                        <asp:TextBox ID="txtApellidos" runat="server" Width="200px" 
+                                            CssClass="campo-field"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                                              ControlToValidate="txtApellidos" 
                                              CssClass="failureNotification" 
@@ -64,7 +67,7 @@
                                              ValidationGroup="RegistrarUsuValidationGroup">*</asp:RequiredFieldValidator>    
                                     </td>
                                     <td width="34%">
-                                        <asp:TextBox ID="txtEmail" runat="server" Width="240px"></asp:TextBox>
+                                        <asp:TextBox ID="txtEmail" runat="server" Width="240px" CssClass="campo-field"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
@@ -74,14 +77,16 @@
                                 </tr>
                                 <tr>
                                     <td width="33%">
-                                        <asp:TextBox ID="txtFechaDeNacimiento" runat="server" Width="200px"></asp:TextBox>
+                                        <asp:TextBox ID="txtFechaDeNacimiento" runat="server" Width="200px" 
+                                            CssClass="campo-field"></asp:TextBox>
                                     </td>
                                     <td width="33%">
-                                        <asp:TextBox ID="txtDireccion" runat="server" Width="240px"></asp:TextBox>
+                                        <asp:TextBox ID="txtDireccion" runat="server" Width="240px" 
+                                            CssClass="campo-field"></asp:TextBox>
                                     </td>
                                     <td width="34%">
                                         <asp:DropDownList ID="cboTipoCliente" runat="server" Width="150px" 
-                                            Enabled="False" Visible="False"></asp:DropDownList>
+                                            Enabled="False" Visible="False" CssClass="campo-field"></asp:DropDownList>
                                     </td>
                                 </tr>
                                 <tr>
@@ -93,7 +98,8 @@
                                 </tr>
                                 <tr>
                                     <td width="33%">
-                                        <asp:TextBox ID="txtClave" runat="server" TextMode="Password" width="200px"></asp:TextBox>
+                                        <asp:TextBox ID="txtClave" runat="server" TextMode="Password" width="200px" 
+                                            CssClass="campo-field"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
                                              ControlToValidate="txtClave" 
                                              CssClass="failureNotification" 
@@ -114,7 +120,7 @@
                                     <asp:Button ID="btnRegistrar" runat="server" CommandName="Login" 
                                         ValidationGroup="RegistrarUsuValidationGroup" onclick="btnRegistrar_Click"
                                         ToolTip="Registrar" Height="30px" Width="118px" 
-                                        Text="Registrar" />
+                                        Text="Registrar" CssClass="orange button" />
                                 </div>
                                 <div align="center">
                                     <asp:Label ID="lblMensaje" runat="server" CssClass="failureNotification"></asp:Label>
@@ -128,7 +134,7 @@
                         <asp:UpdateProgress ID="UpdateProgress1" runat="server">
                             <ProgressTemplate>
                                 <img alt="" src="img/iconos/cargar.gif" />
-                                Actualizando Pagina ......
+                                Actualizando Página ......
                             </ProgressTemplate>
                         </asp:UpdateProgress>
                     </div>

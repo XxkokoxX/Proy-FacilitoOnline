@@ -35,7 +35,7 @@ public class Correos
              * Direccion de Correo (Gmail o Hotmail)
              * y Contrasena correspondiente
          */
-        server.Credentials = new System.Net.NetworkCredential("web0cool@hotmail.com", "1234567897a");
+        server.Credentials = new System.Net.NetworkCredential("javier_j2008@hotmail.com", "cuicajavier01");
         server.EnableSsl = true;
     }
 

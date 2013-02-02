@@ -20,7 +20,7 @@ public class Eventos
     public DataTable listarEventos()
     {
         DataTable dt = new DataTable();
-        SqlDataAdapter sda = new SqlDataAdapter("select * from tb_eventos where estado = 1", cn.getCn);
+        SqlDataAdapter sda = new SqlDataAdapter("select * from tb_eventos e join tb_cliente c on e.cliente = c.membresia where e.estado = 1", cn.getCn);
         sda.Fill(dt);
         return dt;
     }
@@ -110,4 +110,18 @@ public class Eventos
         }
         return msg;
     }
+
+
+    public DataTable listarEventosxClient(string cli)
+    {
+        DataTable dt = new DataTable();
+        SqlDataAdapter sda = new SqlDataAdapter("select e.*,c.razonSocial " +
+          "from tb_eventos e join tb_cliente c " +
+          "on e.cliente = c.membresia " +
+          "where e.cliente = @cli ", cn.getCn);
+        sda.SelectCommand.Parameters.Add("@cli",SqlDbType.VarChar).Value = cli;
+        sda.Fill(dt);
+        return dt;
+    }
+
 }

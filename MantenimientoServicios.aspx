@@ -21,7 +21,8 @@
                                 <tr>
                                     <td width="13%"><b>Producto:</b></td>
                                     <td width="34%">
-                                        <asp:TextBox ID="txtNombre" runat="server" Enabled="False" Width="200px"></asp:TextBox>
+                                        <asp:TextBox ID="txtNombre" runat="server" Enabled="False" Width="200px" 
+                                            CssClass="campo-field"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                                         ControlToValidate="txtNombre" ErrorMessage="Ingrese el producto." 
                                         ToolTip="El producto es obligatorio." ValidationGroup="RegProdValidationGroup" 
@@ -29,7 +30,8 @@
                                     </td>
                                     <td width="18%"><b>Precio:</b></td>
                                     <td width="35%">
-                                        <asp:TextBox ID="txtPrecio" runat="server" Enabled="False"></asp:TextBox>
+                                        <asp:TextBox ID="txtPrecio" runat="server" Enabled="False" 
+                                            CssClass="campo-field"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
                                             ControlToValidate="txtPrecio" ErrorMessage="Ingrese el precio." 
                                             ToolTip="El precio es obligatorio." ValidationGroup="RegProdValidationGroup" 
@@ -45,13 +47,15 @@
                                     </td>
                                     <td><b>Imagen:</b></td>
                                     <td>
-                                        <asp:FileUpload ID="FileUpload1" runat="server" Enabled="False" />
+                                        <asp:FileUpload ID="FileUpload1" runat="server" Enabled="False" 
+                                            CssClass="campo-field" />
                                         </td>
                                 </tr>
                                 <tr>
                                     <td><b>Cantidad:</b></td>
                                     <td>
-                                        <asp:TextBox ID="txtCantidad" runat="server" Enabled="False"></asp:TextBox>
+                                        <asp:TextBox ID="txtCantidad" runat="server" Enabled="False" 
+                                            CssClass="campo-field"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
                                             ControlToValidate="txtCantidad" ErrorMessage="Ingrese los cantidad." 
                                             ToolTip="El cantidad es obligatio." ValidationGroup="RegProdValidationGroup" 
@@ -63,16 +67,6 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <asp:TextBox ID="txtRuc" runat="server" Visible="False"></asp:TextBox>
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                            
-                                    </td>
-                                </tr>
-                                <tr>
                                     <td style="height: 17px"><b>Descripción</b></td>
                                     <td style="height: 17px"></td>
                                     <td colspan="2" style="height: 17px"></td>
@@ -80,11 +74,12 @@
                                 <tr>
                                     <td colspan="4">
                                         <asp:TextBox ID="txtDescripcion" runat="server" Height="100px" 
-                                            TextMode="MultiLine" Width="450px"></asp:TextBox>
+                                            TextMode="MultiLine" Width="450px" CssClass="campo-field" Enabled="False"></asp:TextBox>
+                                        <asp:TextBox ID="txtRuc" runat="server" Visible="False"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="4"><asp:Label ID="lblMensaje" runat="server" CssClass="failureNotification"></asp:Label>
+                                    <td colspan="4"><b><asp:Label ID="lblMensaje" runat="server" CssClass="failureNotification"></asp:Label></b>
                                     </td>
                                 </tr>
                             </table>
@@ -107,7 +102,7 @@
                             <img src="img/iconos/salir.png" alt="" />
                             <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="100px" 
                                 ForeColor="#FF3300" ToolTip="Click aquí para cancelar." 
-                                PostBackUrl="~/PanelSocio.aspx" CssClass="yellow button" />
+                                PostBackUrl="~/PanelInicio.aspx" CssClass="yellow button" />
                         </td>
                     </tr>
                     <tr>
@@ -129,12 +124,12 @@
             ValidationGroup="RegProdValidationGroup" CssClass="error" 
             DisplayMode="List" HeaderText="Error Ingrese los siguientes datos:" 
             ShowMessageBox="True" />
-    </div>
+    </div><br />
 
-    <div class="line"></div>   
+    <div class="line"></div><br />   
         
     <div class="article">
-        <table style="width: 100%;">
+        <table style="width: 100%;" class="ic_container">
             <tr>
                 <td align="center"><h3><b>Lista de Servicios</b></h3></td>
             </tr>
@@ -156,26 +151,26 @@
                             <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle HorizontalAlign="Right" />
                             </asp:BoundField>
-                            <asp:BoundField DataField="descripcion" HeaderText="Categoria" >
+                            <asp:BoundField DataField="descripcion" HeaderText="Categoría" >
                             <HeaderStyle HorizontalAlign="Center" />
-                            <ItemStyle HorizontalAlign="Right" />
+                            <ItemStyle HorizontalAlign="Center" />
                             </asp:BoundField>
                             <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" >
                             <HeaderStyle HorizontalAlign="Center" />
-                            <ItemStyle HorizontalAlign="Right" />
+                            <ItemStyle HorizontalAlign="Center" />
                             </asp:BoundField>
                             <asp:BoundField DataField="Precio" HeaderText="Precio" 
                                 DataFormatString="{0:c}" >
                             <HeaderStyle HorizontalAlign="Center" />
-                            <ItemStyle HorizontalAlign="Right" />
+                            <ItemStyle HorizontalAlign="Center" />
                             </asp:BoundField>
                             <asp:TemplateField HeaderText="Imagen">
                                 <ItemTemplate>
-                                    <asp:Image ID="Image1" runat="server" Height="116px" 
-                                        ImageUrl='<%# Eval("id","ImagenxID.ashx?id={0}") %>' Width="151px" />
+                                    <asp:Image ID="Image1" runat="server" Height="80px" Width="80px"
+                                        ImageUrl='<%# Eval("id","ImagenxID.ashx?id={0}") %>' />
                                 </ItemTemplate>
                                 <HeaderStyle HorizontalAlign="Center" />
-                                <ItemStyle HorizontalAlign="Center" Width="160px" />
+                                <ItemStyle HorizontalAlign="Center" Width="100px" />
                             </asp:TemplateField>
                             <asp:CommandField ButtonType="Image" DeleteImageUrl="~/img/iconos/eli.png" 
                                 HeaderText="Eliminar" ShowDeleteButton="True">

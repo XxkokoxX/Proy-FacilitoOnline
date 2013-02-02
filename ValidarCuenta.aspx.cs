@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class ValidarCliente : System.Web.UI.Page
+public partial class ValidarCuenta : System.Web.UI.Page
 {
     Permisos p = new Permisos();
 
@@ -27,7 +27,15 @@ public partial class ValidarCliente : System.Web.UI.Page
 
         string msg = p.registrarPermisoClienteYUsuarios(cp);
 
-        string script = @"<script type='text/javascript'> alert('{0}'); </script>";
+        /*string script = @"<script type='text/javascript'> alert('{0}'); </script>";
+        script = string.Format(script, msg);
+        ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);*/
+
+        // Mostrar mensaje y retornar
+        string script = @"<script type='text/javascript'>
+                                    alert('{0}');
+                                    window.location = 'Restaurantes.aspx';
+                          </script>";
         script = string.Format(script, msg);
         ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
 

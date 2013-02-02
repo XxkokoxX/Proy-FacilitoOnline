@@ -14,7 +14,7 @@
                             <asp:Button ID="btnGrabar" 
                                 runat="server" Text="Grabar" onclick="btnGrabar_Click" Width="100px" ForeColor="#FF3300" 
                                 ToolTip="Clic aqui para grabar." 
-                                ValidationGroup="RegProdValidationGroup" />
+                                ValidationGroup="RegProdValidationGroup" CssClass="yellow button" />
                         </td>
                         <td rowspan="3">                 
                             <table style="width:100%;">
@@ -91,7 +91,7 @@
                             <img src="img/iconos/salir.png" alt="" />
                             <asp:Button ID="Button2" runat="server" Text="Regresar" Width="100px" 
                                 ForeColor="#FF3300" ToolTip="Click aquí para regresar." 
-                                PostBackUrl="~/MantenimientoServicios.aspx" />
+                                PostBackUrl="~/MantenimientoServicios.aspx" CssClass="yellow button" />
                         </td>
                     </tr>
                     <tr>

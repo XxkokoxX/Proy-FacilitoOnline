@@ -20,7 +20,8 @@ public partial class MantenimientoUsuario : System.Web.UI.Page
             {
                 if (!Context.User.Identity.IsAuthenticated)
                 {
-                    FormsAuthentication.RedirectToLoginPage("Login_Usuario.aspx");
+                    //FormsAuthentication.RedirectToLoginPage("Login_Usuario.aspx");
+                    Response.Redirect("Login_Cliente.aspx");
                 }
                 else
                 {
@@ -74,6 +75,7 @@ public partial class MantenimientoUsuario : System.Web.UI.Page
         cboCategoria.Enabled = true;
         txtCantidad.Enabled = true;
         txtPrecio.Enabled = true;
+        txtDescripcion.Enabled = true;
         FileUpload1.Enabled = true;
     }
 
@@ -107,6 +109,7 @@ public partial class MantenimientoUsuario : System.Web.UI.Page
                 txtCantidad.Enabled = false;
                 txtPrecio.Enabled = false;
                 FileUpload1.Enabled = false;
+                txtDescripcion.Enabled = false;
 
             }
             else

@@ -60,8 +60,41 @@
             });
         });
     </script>
+    <!-- Estilos mensajes-->
+    <style type="text/css">
+    .info, .exito, .alerta, .error {
+        font-family:Arial, Helvetica, sans-serif; 
+        font-size:13px;
+        border: 1px solid;
+        margin: 10px 0px;
+        padding:15px 10px 15px 50px;
+        background-repeat: no-repeat;
+        background-position: 10px center;
+    }
+    .info {
+        color: #00529B;
+        background-color: #BDE5F8;
+        background-image: url('estilos/MensajesjQuery/info.png');
+    }
+    .exito {
+        color: #4F8A10;
+        background-color: #DFF2BF;
+        background-image:url('estilos/MensajesjQuery/exito.png');
+    }
+    .alerta {
+        color: #9F6000;
+        background-color: #FEEFB3;
+        background-image: url('estilos/MensajesjQuery/alerta.png');
+    }
+    .error {
+        color: #D8000C;
+        background-color: #FFBABA;
+        background-image: url('estilos/MensajesjQuery/error.png');
+    }
+    </style>
     <!-- Estilos botones -->
     <link href="estilos/Botones/Modelo01/estilo.css" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -108,7 +141,7 @@
                                 </AnonymousTemplate>
                                 <LoggedInTemplate>
                                     Usuario <span class="bold"><a href="PanelInicio.aspx"><asp:LoginName ID="HeadLoginName" runat="server" /></a></span>!<br />
-                                    [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Cerrar sesión" LogoutPageUrl="Inicio.aspx"/> ]
+                                    [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Cerrar sesión" LogoutPageUrl="~/Restaurantes.aspx"/> ]
                                 </LoggedInTemplate>
                             </asp:LoginView> | <a href="RegistrarUsuario.aspx">Registrate</a>
                         </td>
@@ -136,12 +169,13 @@
                 <div id="nav">
 	                <ul>
     	                <li><a href="Inicio.aspx">Inicio</a></li>
-                        <li style="background-color: rgb(238, 238, 238);"><a href="Restaurantes.aspx" style="color: rgb(158, 0, 57);">Restaurantes</a></li>
+                        <li style="background-color: #9e0039;"><a href="Restaurantes.aspx" 
+                                style="color: #fff;">Restaurantes</a></li>
                         <li style="background-color: rgb(238, 238, 238);"><a href="#" style="color: rgb(158, 0, 57);">Promociones</a></li>
                         <li style="background-color: rgb(238, 238, 238);"><a href="#" style="color: rgb(158, 0, 57);">Mapa de Restaurantes</a></li>
                         <li style="background-color: rgb(238, 238, 238);"><a href="#" style="color: rgb(158, 0, 57);">Lo Nuevo</a></li>
                         <li style="background-color: rgb(238, 238, 238);"><a href="#" style="color: rgb(158, 0, 57);">¿Qué es GPS Restaurantes?</a></li>
-                        <li style="background-color: rgb(238, 238, 238);"><a href="#" style="color: rgb(158, 0, 57);">Mi Cuenta</a></li>
+                        <li style="background-color: rgb(238, 238, 238);"><a href="PanelInicio.aspx" style="color: rgb(158, 0, 57);">Mi Cuenta</a></li>
                     </ul>
                     <div class="clear"></div>
                 </div>

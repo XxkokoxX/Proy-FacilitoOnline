@@ -76,7 +76,7 @@
 
                                 <div class="dashboard-site-extra-config-item float-left ">
                                     <div class="dashboard-site-extra-config-item-title dashboard-extra-config-domain-site ">
-                                        <a class=" open-bligoo-window-link " href="javascript:void(0)" data-method="windowDashboardDomainChange" data-name="windowdashboarddomainchange" data-parameters="{&#39;blogId&#39;:&#39;345969&#39;}" data-height="350" data-width="400" data-module="Blog">Ofertas Clientes</a>
+                                        <a class=" open-bligoo-window-link " href="ConsultarOfertas.aspx" data-method="windowDashboardDomainChange" data-name="windowdashboarddomainchange" data-parameters="{&#39;blogId&#39;:&#39;345969&#39;}" data-height="350" data-width="400" data-module="Blog">Ofertas Clientes</a>
                                     </div>
                                     <div class="dashboard-site-extra-config-item-desc ">
                                         <p>Consultar reportes de las ofertas que ofrecen las empresa registradas en la aplicación.</p>
@@ -85,7 +85,7 @@
 
                                 <div class="dashboard-site-extra-config-item float-left ">
                                     <div class="dashboard-site-extra-config-item-title dashboard-extra-config-site-removeads ">
-                                        <a href="javascript:void(0)">Eventos Clientes</a></div>
+                                        <a href="ConsultarEventos.aspx">Eventos Clientes</a></div>
                                     <div class="dashboard-site-extra-config-item-desc ">
                                         <p>Consultar reportes de los eventos que ofrecen los empresas registrados en la aplicación..</p>
                                         <div class="dashboard-site-pro-badge  ">
@@ -117,7 +117,7 @@
 
                                 <div class="dashboard-site-extra-config-item float-left ">
                                     <div class="dashboard-site-extra-config-item-title dashboard-extra-config-offline-site ">
-                                        <a class=" open-bligoo-window-link " href="javascript:void(0)" data-method="windowPutOfflineSite" data-name="windowputofflinesite" data-parameters="{&#39;blogId&#39;:&#39;345969&#39;}" data-height="330" data-width="400" data-module="Blog">Clientes más Visitados</a>
+                                        <a class=" open-bligoo-window-link " href="ConsultarClienteMasVisitados.aspx" data-method="windowPutOfflineSite" data-name="windowputofflinesite" data-parameters="{&#39;blogId&#39;:&#39;345969&#39;}" data-height="330" data-width="400" data-module="Blog">Clientes más Visitados</a>
                                     </div>
                                     <div class="dashboard-site-extra-config-item-desc ">
                                         <p>Consultar reportes de las empresas más visitadas.</p>
@@ -129,6 +129,13 @@
                                         <a class=" open-bligoo-window-link " href="MantenimientoComentarios.aspx" data-method="windowDashboardThemeEdit" data-name="windowdashboardthemeedit" data-parameters="{&#39;blogId&#39;:&#39;345969&#39;}" data-height="120" data-width="400" data-module="Blog">Gestionar Comentarios</a>
                                     </div>
                                     <div class="dashboard-site-extra-config-item-desc "><p>Se ha creado con el fin de realizar el mantenimiento de los comentarios de la aplicación.</p></div>
+                                </div>
+
+                                <div class="dashboard-site-extra-config-item float-left ">
+                                    <div class="dashboard-site-extra-config-item-title dashboard-extra-config-theme-edit ">
+                                        <a class=" open-bligoo-window-link " href="EnviarFacturaMensual.aspx" data-method="windowDashboardThemeEdit" data-name="windowdashboardthemeedit" data-parameters="{&#39;blogId&#39;:&#39;345969&#39;}" data-height="120" data-width="400" data-module="Blog">Enviar Factura Mensual</a>
+                                    </div>
+                                    <div class="dashboard-site-extra-config-item-desc "><p>Se ha creado con el fin de enviar cada quincena la factura mensual por los servicios prestados a los clientes socios.</p></div>
                                 </div>
 
                                 <div class="clear "></div>

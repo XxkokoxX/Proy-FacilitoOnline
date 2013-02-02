@@ -48,7 +48,6 @@ public partial class Restaurantes_detalle : System.Web.UI.Page
         comentarios(razonSocial);
         txtComentario.Attributes.Add("OnFocus", "LimpiarTexto(this);");
         //txtComentario.Attributes.Add("onkeydown", "if(event.which || event.keyCode){if ((event.which == 13) || (event.keyCode == 13)) {document.getElementById('" + btnComentar.UniqueID + "').click();return false;}} else {return true}; ");
-
     }
 
     private string GetConnectionString()
@@ -129,6 +128,7 @@ public partial class Restaurantes_detalle : System.Web.UI.Page
                     dc.Cliente = razonSocial;
 
                     string msg = c.registrarComentario(dc);
+
                     lblMensaje.Text = msg;
                     string script = @"<script type='text/javascript'> alert('{0}'); </script>";
                     script = string.Format(script, msg);
@@ -203,13 +203,33 @@ public partial class Restaurantes_detalle : System.Web.UI.Page
 
     protected void btnReservar_Click(object sender, EventArgs e)
     {
+        if (!Context.User.Identity.IsAuthenticated)
+        {
+            FormsAuthentication.RedirectToLoginPage();
+            //Response.Redirect("Login_Usuario.aspx");
+        }
+        else
+        {
 
+            HttpCookie dato = new HttpCookie("dato");
+
+            DataControlFieldCell f = (DataControlFieldCell)((Control)sender).Parent;
+            string muni = (f.FindControl("lblMunicipio")as Label).Text;
+
+            dato.Values["local"] = muni;
+            dato.Values["ruc"] = Request.QueryString.Get("m");
+
+            Response.Cookies.Add(dato);
+            ClientScript.RegisterStartupScript(this.GetType(), "myScript", "<script>javascript:a();</script>");
+        }
     }
-    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+    
+    /*protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
         if (!Context.User.Identity.IsAuthenticated)
         {
-            FormsAuthentication.RedirectToLoginPage("Login_Usuario.aspx");
+            //FormsAuthentication.RedirectToLoginPage("Login_Usuario.aspx");
+            Response.Redirect("Login_Usuario.aspx");
         }
         else
         {
@@ -223,6 +243,22 @@ public partial class Restaurantes_detalle : System.Web.UI.Page
 
             Response.Cookies.Add(dato);
             ClientScript.RegisterStartupScript(this.GetType(), "myScript", "<script>javascript:a();</script>");
+        }
+    }*/
+
+    // Grilla anidados
+    protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        Cliente cli = new Cliente();
+
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            //string codusuario = e.Row.Cells[1].Text;
+            GridView grilla = (GridView)e.Row.FindControl("GridView2");
+            string ciudad = (e.Row.FindControl("lblCiudad") as Label).Text;
+
+            grilla.DataSource = cli.listarClienteSimilares(ciudad);
+            grilla.DataBind();
         }
     }
 

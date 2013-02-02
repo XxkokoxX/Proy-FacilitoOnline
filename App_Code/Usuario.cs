@@ -141,4 +141,13 @@ public class Usuario
         }
         return msg;
     }
+
+
+    public DataTable listarUsuarioVisitante()
+    {
+        SqlDataAdapter da = new SqlDataAdapter("select * from tb_usuario where tipoUsuario = 2", cn.getCn);
+        DataTable tb = new DataTable();
+        da.Fill(tb);
+        return tb;
+    }
 }

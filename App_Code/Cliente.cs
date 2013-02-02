@@ -212,11 +212,49 @@ public class Cliente
     }
 
 
-    public DataTable filtro1(string razon)
+    public DataTable filtro1(string razon,int estado)
     {
-        SqlDataAdapter da = new SqlDataAdapter("select * from tb_cliente where razonSocial like '" + razon + "%'", cn.getCn);
+        SqlDataAdapter da = new SqlDataAdapter("select * from tb_cliente where razonSocial like '" + razon + "%'" + " and estado = @estado", cn.getCn);
+        da.SelectCommand.Parameters.Add("@estado", SqlDbType.Int).Value = estado;
         DataTable tb = new DataTable();
         da.Fill(tb);
         return tb;
     }
+
+
+    public DataTable listarClienteSimilares(string ciudad)
+    {
+        SqlDataAdapter da = new SqlDataAdapter("select * from tb_cliente where ciudad=@ciudad", cn.getCn);
+        da.SelectCommand.Parameters.Add("@ciudad",SqlDbType.VarChar).Value = ciudad;
+        DataTable tb = new DataTable();
+        da.Fill(tb);
+        return tb;
+    }
+
+
+    public DataTable listarClienteMasVistos()
+    {
+        SqlDataAdapter da = new SqlDataAdapter("select c.razonSocial,c.nombreContacto,c.tipoCliente,c.ciudad, count(*) as cantidad " +
+          "from tb_cliente c join tb_reservas r " +
+          "on c.razonSocial = r.ruc " +
+          "group by c.razonSocial,c.nombreContacto,c.tipoCliente,c.ciudad " +
+          "having count(*) >= 1", cn.getCn);
+        DataTable tb = new DataTable();
+        da.Fill(tb);
+        return tb;
+    }
+
+    public DataTable BuscarClienteMasVistos(string cli)
+    {
+        SqlDataAdapter da = new SqlDataAdapter("select c.membresia,c.razonSocial,c.nombreContacto,c.tipoCliente,c.ciudad, count(*) as cantidad " +
+          "from tb_cliente c join tb_reservas r " +
+          "on c.razonSocial = r.ruc " +
+          "group by c.membresia,c.razonSocial,c.nombreContacto,c.tipoCliente,c.ciudad " +
+          "having count(*) >= 1 and c.membresia = @cli", cn.getCn);
+        da.SelectCommand.Parameters.Add("@cli", SqlDbType.VarChar).Value = cli;
+        DataTable tb = new DataTable();
+        da.Fill(tb);
+        return tb;
+    }
+
 }

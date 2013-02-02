@@ -1,6 +1,6 @@
 PASOS PARA EJECUTAR LA APLICACIÓN
 
-. Crear la base de datos FacilitoOnline y Ejecutar el buckup
+. Crear la base de datos FacilitoOnline y Ejecutar "SOLO" el buckup
 . Abrir el proyecto y cambiar la conexión en la clase conexión
 . Abrir el proyecto y cambiar la conexión dependiente en la clase Restaurantes_detalle.aspx.cs
 . Habilitar el Service Broker de la base de datos para trabajar con SQLDependendy y SqlCacheDependency

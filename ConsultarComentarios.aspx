@@ -4,8 +4,8 @@
     <div class="line"></div> 
     <div class="article">
         <div style="background-position: left;">
-            <h2><b>Consultar Comentarios</b></h2>
-            <table style="width: 100%; height: 143px;">
+            <h2><b>Consultar Comentarios</b></h2><br />
+            <table style="width: 100%; height: 143px;" class="ic_container">
                 <tbody>
                     <tr>
                         <td style="border-right: 1px dotted silver;width: 165px; height: 45px;">
@@ -14,7 +14,7 @@
                             <asp:Button ID="btnBuscar" runat="server" Text="Buscar"
                                 Width="100px" ForeColor="#FF3300" 
                                 ToolTip="Clic aqui para listar comentarios." 
-                                onclick="btnBuscar_Click"  />
+                                onclick="btnBuscar_Click" CssClass="yellow button"  />
                         </td>
                         <td rowspan="3">                 
                             <table style="width:100%;">
@@ -27,7 +27,8 @@
                                 <tr>
                                     <td><b>Fecha Inicio:</b></td>
                                     <td>
-                                        <asp:TextBox ID="txtFechaInicio" runat="server" Width="200px" ></asp:TextBox>
+                                        <asp:TextBox ID="txtFechaInicio" runat="server" Width="200px" 
+                                            CssClass="campo-field" ></asp:TextBox>
                                     </td>
                                     <td>&nbsp;</td>
                                     <td>
@@ -36,7 +37,8 @@
                                 <tr>
                                     <td><b>Fecha Fin:</b></td>
                                     <td>
-                                        <asp:TextBox ID="txtFechaFin" runat="server" Width="200px"></asp:TextBox>
+                                        <asp:TextBox ID="txtFechaFin" runat="server" Width="200px" 
+                                            CssClass="campo-field"></asp:TextBox>
                                     </td>
                                     <td>&nbsp;</td>
                                     <td>
@@ -74,7 +76,8 @@
                             &nbsp;&nbsp;&nbsp;
                             <img src="img/iconos/limpiar.png" alt="" />
                             <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" Width="100px" 
-                                ForeColor="#FF3300" ToolTip="Click aquí para limpiar los controles." onclick="btnLimpiar_Click" />
+                                ForeColor="#FF3300" ToolTip="Click aquí para limpiar los controles." 
+                                onclick="btnLimpiar_Click" CssClass="yellow button" />
                         </td>
                     </tr>
                     <tr>
@@ -83,20 +86,19 @@
                             <img alt="" src="img/iconos/salir.png" />
                             <asp:Button ID="Button2" runat="server" ForeColor="#FF3300" 
                                 PostBackUrl="~/PanelInicio.aspx" Text="Regresar" 
-                                ToolTip="Click aquí para cancelar." Width="100px" />
+                                ToolTip="Click aquí para cancelar." Width="100px" 
+                                CssClass="yellow button" />
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-    </div>
-        
+    </div><br />
 
-
-    <div class="line"></div>   
+    <div class="line"></div><br />   
         
     <div class="article">
-        <table style="width: 100%;">
+        <table style="width: 100%;" class="ic_container">
             <tr>
                 <td align="center"><h3><b>Consultar Comentarios</b></h3></td>
             </tr>

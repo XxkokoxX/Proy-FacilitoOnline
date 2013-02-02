@@ -7,10 +7,13 @@ using System.Web.UI.WebControls;
 
 
 using System.Web.Security;
+using System.Data;
+using System.Globalization;
 
 public partial class MantenimientoUsuario : System.Web.UI.Page
 {
     Ofertas o = new Ofertas();
+    Producto p = new Producto();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -20,12 +23,23 @@ public partial class MantenimientoUsuario : System.Web.UI.Page
             {
                 if (!Context.User.Identity.IsAuthenticated)
                 {
-                    FormsAuthentication.RedirectToLoginPage("Login_Cliente.aspx");
+                    //FormsAuthentication.RedirectToLoginPage("Login_Cliente.aspx");
+                    Response.Redirect("Login_Cliente.aspx");
                 }
                 else
                 {
+                    cboCategoria.DataSource = p.cargarCategoria();
+                    cboCategoria.DataTextField = "descripcion";
+                    cboCategoria.DataValueField = "id";
+                    cboCategoria.DataBind();
+
+                    cboProducto.DataSource = p.listarProductoss(Context.User.Identity.Name);
+                    cboProducto.DataTextField = "nombre";
+                    cboProducto.DataValueField = "id";
+                    cboProducto.DataBind();
+
                     txtCliente.Text = Context.User.Identity.Name;
-                    GridView1.DataSource = o.listarOfertas();
+                    GridView1.DataSource = o.listarOfertas(Context.User.Identity.Name);
                     GridView1.DataBind();
                 }
             }
@@ -35,11 +49,26 @@ public partial class MantenimientoUsuario : System.Web.UI.Page
             lblMensaje.Text = ex.Message;
         }
     }
+
+    protected void cboCategoria_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        cboProducto.DataSource = p.listarProductosXCategoria(int.Parse(cboCategoria.SelectedValue), Context.User.Identity.Name.ToString());
+        cboProducto.DataTextField = "nombre";
+        cboProducto.DataValueField = "id";
+        cboProducto.DataBind();
+    }
+
+    protected void cboProducto_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        DataTable tb = p.listarPrecioXProducto(int.Parse(cboProducto.SelectedValue));
+        //double precio = double.Parse(tb.Rows[0][0].ToString());
+        lblPrecioActual.Text = tb.Rows[0][0].ToString();
+    }
       
     protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         GridView1.PageIndex = e.NewPageIndex;
-        GridView1.DataSource = o.listarOfertas();
+        GridView1.DataSource = o.listarOfertas(Context.User.Identity.Name);
         GridView1.DataBind();
     }
 
@@ -57,6 +86,9 @@ public partial class MantenimientoUsuario : System.Web.UI.Page
             txtFechaInicio.Text = f1.ToShortDateString();
             txtFechaFin.Text = f2.ToShortDateString();
             lblFechaRegistro.Text = GridView1.SelectedRow.Cells[7].Text;
+            cboProducto.SelectedValue = GridView1.SelectedRow.Cells[8].Text;
+            lblPrecioActual.Text = GridView1.SelectedRow.Cells[9].Text;
+            txtPrecioNuevo.Text = GridView1.SelectedRow.Cells[10].Text;
         }
         catch (Exception ex)
         {
@@ -92,11 +124,14 @@ public partial class MantenimientoUsuario : System.Web.UI.Page
                 doo.Fecha_inicio = DateTime.Parse(txtFechaInicio.Text);
                 doo.Fecha_fin = DateTime.Parse(txtFechaFin.Text);
                 doo.Cliente = txtCliente.Text;
+                doo.Producto = int.Parse(cboProducto.SelectedValue.ToString());
+                doo.PrecioActual = float.Parse(lblPrecioActual.Text);
+                doo.PrecioOferta = float.Parse(txtPrecioNuevo.Text);
 
                 string msg = o.registraOfertas(doo);
                 lblMensaje.Text = msg;
 
-                GridView1.DataSource = o.listarOfertas();
+                GridView1.DataSource = o.listarOfertas(Context.User.Identity.Name);
                 GridView1.DataBind();
 
                 desactivarCampos();
@@ -110,11 +145,14 @@ public partial class MantenimientoUsuario : System.Web.UI.Page
                 doo.Descripcion = txtDescripcion.Text;
                 doo.Fecha_inicio = DateTime.Parse(txtFechaInicio.Text);
                 doo.Fecha_fin = DateTime.Parse(txtFechaFin.Text);
+                doo.Producto = int.Parse(cboProducto.SelectedValue.ToString());
+                doo.PrecioActual = float.Parse(lblPrecioActual.Text);
+                doo.PrecioOferta = float.Parse(txtPrecioNuevo.Text);
 
                 string msg = o.modificarOfertas(doo); ;
                 lblMensaje.Text = msg;
 
-                GridView1.DataSource = o.listarOfertas();
+                GridView1.DataSource = o.listarOfertas(Context.User.Identity.Name);
                 GridView1.DataBind();
 
                 hdfCodigoAlerta.Value = null;
@@ -139,7 +177,7 @@ public partial class MantenimientoUsuario : System.Web.UI.Page
             string msg = o.eliminaOferta(doo);
             lblMensaje.Text = msg;
 
-            GridView1.DataSource = o.listarOfertas(); ;
+            GridView1.DataSource = o.listarOfertas(Context.User.Identity.Name);
             GridView1.DataBind();
 
             limpiarCampos();
@@ -151,13 +189,13 @@ public partial class MantenimientoUsuario : System.Web.UI.Page
         }
     }
 
-
     public void limpiarCampos()
     {
         txtOferta.Text = "";
         txtDescripcion.Text = "";
         txtFechaInicio.Text = "";
         txtFechaFin.Text = "";
+        txtPrecioNuevo.Text = "";
     }
     public void activarCampos()
     {
@@ -171,7 +209,9 @@ public partial class MantenimientoUsuario : System.Web.UI.Page
         txtDescripcion.Enabled = true;
         txtFechaInicio.Enabled = true;
         txtFechaFin.Enabled = true;
-        FileUpload1.Enabled = true;
+        cboCategoria.Enabled = true;
+        cboProducto.Enabled = true;
+        txtPrecioNuevo.Enabled = true;
     }
     public void desactivarCampos()
     {
@@ -183,7 +223,8 @@ public partial class MantenimientoUsuario : System.Web.UI.Page
         txtDescripcion.Enabled = false;
         txtFechaInicio.Enabled = false;
         txtFechaFin.Enabled = false;
-        FileUpload1.Enabled = false;
+        cboCategoria.Enabled = false;
+        cboProducto.Enabled = false;
+        txtPrecioNuevo.Enabled = false;
     }
-
 }

@@ -17,7 +17,8 @@
                 </tr>
                 <tr>
                     <td width="33%">
-                        <asp:TextBox ID="txtContacto" runat="server" Width="240px"></asp:TextBox>
+                        <asp:TextBox ID="txtContacto" runat="server" Width="240px" 
+                            CssClass="campo-field"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                                              ControlToValidate="txtContacto" 
                                              CssClass="failureNotification" 
@@ -25,7 +26,7 @@
                                              ValidationGroup="RegistrarEmpValidationGroup">*</asp:RequiredFieldValidator>
                     </td>
                     <td width="33%">
-                        <asp:TextBox ID="txtEmail" runat="server" Width="200px"></asp:TextBox>
+                        <asp:TextBox ID="txtEmail" runat="server" Width="200px" CssClass="campo-field"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                                              ControlToValidate="txtEmail" 
                                              CssClass="failureNotification" 
@@ -33,7 +34,8 @@
                                              ValidationGroup="RegistrarEmpValidationGroup">*</asp:RequiredFieldValidator>
                     </td>
                     <td width="34%">
-                        <asp:DropDownList ID="cboCargo" runat="server" Width="150px">
+                        <asp:DropDownList ID="cboCargo" runat="server" Width="150px" 
+                            CssClass="campo-field">
                         </asp:DropDownList>
                     </td>
                 </tr>
@@ -49,7 +51,8 @@
                 </tr>
                 <tr>
                     <td colspan="3">
-                        <asp:TextBox ID="txtRazonSocial" runat="server" Width="85%"></asp:TextBox>
+                        <asp:TextBox ID="txtRazonSocial" runat="server" Width="85%" 
+                            CssClass="campo-field"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -62,7 +65,7 @@
                 </tr>
                 <tr>
                     <td width="33%">
-                        <asp:TextBox ID="txtCalle" runat="server" Width="240px"></asp:TextBox>
+                        <asp:TextBox ID="txtCalle" runat="server" Width="240px" CssClass="campo-field"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
                                              ControlToValidate="txtCalle" 
                                              CssClass="failureNotification" 
@@ -70,7 +73,7 @@
                                              ValidationGroup="RegistrarEmpValidationGroup">*</asp:RequiredFieldValidator>
                     </td>
                     <td width="33%">
-                        <asp:TextBox ID="txtNumeroExterior" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtNumeroExterior" runat="server" CssClass="campo-field"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
                                              ControlToValidate="txtNumeroExterior" 
                                              CssClass="failureNotification" 
@@ -78,7 +81,7 @@
                                              ValidationGroup="RegistrarEmpValidationGroup">*</asp:RequiredFieldValidator>
                     </td>
                     <td width="34%">
-                        <asp:TextBox ID="txtNumeroInterior" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtNumeroInterior" runat="server" CssClass="campo-field"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -91,7 +94,8 @@
                 </tr>
                 <tr>
                     <td width="33%">
-                        <asp:TextBox ID="txtMunicipio" runat="server" Width="240px"></asp:TextBox>
+                        <asp:TextBox ID="txtMunicipio" runat="server" Width="240px" 
+                            CssClass="campo-field"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
                                              ControlToValidate="txtMunicipio" 
                                              CssClass="failureNotification" 
@@ -99,7 +103,7 @@
                                              ValidationGroup="RegistrarEmpValidationGroup">*</asp:RequiredFieldValidator>
                     </td>
                     <td width="33%">
-                        <asp:TextBox ID="txtCodigoPostal" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtCodigoPostal" runat="server" CssClass="campo-field"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" 
                                              ControlToValidate="txtCodigoPostal" 
                                              CssClass="failureNotification" 
@@ -107,7 +111,7 @@
                                              ValidationGroup="RegistrarEmpValidationGroup">*</asp:RequiredFieldValidator>
                     </td>
                     <td width="34%">
-                        <asp:TextBox ID="txtCiudad" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtCiudad" runat="server" CssClass="campo-field"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" 
                                              ControlToValidate="txtCiudad" 
                                              CssClass="failureNotification" 
@@ -126,17 +130,19 @@
                 <tr>
                     <td width="33%">
                         <asp:DropDownList ID="cboPais" runat="server" AutoPostBack="True" 
-                                            onselectedindexchanged="cboPais_SelectedIndexChanged" Width="150px">
+                                            onselectedindexchanged="cboPais_SelectedIndexChanged" 
+                            Width="150px" CssClass="campo-field">
                         </asp:DropDownList>
                     </td>
                     <td width="33%">
-                        <asp:DropDownList ID="cboEstado" runat="server" Width="150px">
+                        <asp:DropDownList ID="cboEstado" runat="server" Width="150px" 
+                            CssClass="campo-field">
                             <asp:ListItem>---Seleccione---</asp:ListItem>
                         </asp:DropDownList>
                     </td>
                     <td width="34%">
                         <asp:DropDownList ID="cboTipoCliente" runat="server" Width="150px" 
-                                            Enabled="False" Visible="False">
+                                            Enabled="False" Visible="False" CssClass="campo-field">
                         </asp:DropDownList>
                     </td>
                 </tr>
@@ -146,7 +152,7 @@
                 </tr>
                 <tr>
                     <td colspan="3">
-                        <asp:TextBox ID="txtSitioWeb" runat="server" Width="40%">http://</asp:TextBox>
+                        <asp:TextBox ID="txtSitioWeb" runat="server" Width="40%" CssClass="campo-field">http://</asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -156,7 +162,7 @@
                 <tr>
                     <td colspan="3">
                         <asp:TextBox ID="txtActividadPreponderante" runat="server" Height="120px" TextMode="MultiLine" 
-                                            Width="80%"></asp:TextBox>
+                                            Width="80%" CssClass="campo-field"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -167,7 +173,7 @@
                 <tr>
                     <td colspan="3">
                         <asp:TextBox ID="txtListarProductos" runat="server" Height="120px" TextMode="MultiLine" 
-                                            Width="80%"></asp:TextBox>
+                                            Width="80%" CssClass="campo-field"></asp:TextBox>
                     </td>
                 </tr>
             </table>

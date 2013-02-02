@@ -6,7 +6,7 @@
             <table id="dashboard-sites-table">
                 <thead>
                     <tr class=" even ">
-                        <td>Panel de Control Cliente Socio</td>
+                        <td>Panel de Control Cliente Invitado</td>
                         <td>Lecturas<a class=" has-bligoo-tooltip " data-bligoo-tooltip-text="&lt;div id=&#39;dashboard-reports-visits-number-tooltip&#39;&gt;&lt;img width=&#39;219&#39; height=&#39;52&#39; src=&#39;estilos/Dashboard/face-report-description-table.gif&#39;/&gt;&lt;p&gt;Promedio de lecturas de esta semana en relación a la semana anterior&lt;/p&gt;&lt;/div&gt;" data-bligoo-tooltip-width="300" href="javascript:void(0)" data-bligoo-tooltip-direction="vertical"> ?</a>
                             <div class="bligoo-tooltip" style="width: 300px; display: none; left: 826px; top: 113px;">
                                 <div class="bligoo-tooltip-body">
@@ -84,7 +84,8 @@
 
                                 <div class="dashboard-site-extra-config-item float-left ">
                                     <div class="dashboard-site-extra-config-item-title dashboard-extra-config-pro-account ">
-                                        <a class=" open-bligoo-window-link " href="CambiarCuentaVisitanteASocio.aspx" data-method="windowProAccount" data-name="windowproaccount" data-parameters="{&#39;blogId&#39;:&#39;345969&#39;}" data-height="130" data-width="400" data-module="ContactForm">Cambia cuena a Socio</a>
+                                        <a class=" open-bligoo-window-link " href="CambiarCuentaVisitanteASocio.aspx" data-method="windowProAccount" data-name="windowproaccount" data-parameters="{&#39;blogId&#39;:&#39;345969&#39;}" data-height="130" data-width="400" data-module="ContactForm">Cambiar cuenta 
+                                        invitado a Socio</a>
                                     </div>
                                     <div class="dashboard-site-extra-config-item-desc ">
                                         <p>Realizar algún cambio en la información de mi empresa.</p>

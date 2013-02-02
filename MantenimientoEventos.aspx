@@ -4,7 +4,7 @@
     <div class="line"></div> 
     <div class="article">
         <div style="background-position: left;">
-            <h2><b>Administrar Eventos</b></h2>
+            <h2><b>Administrar Eventos</b></h2><br />
             <table style="width: 100%; height: 143px;" class="ic_container">
                 <tbody>
                     <tr>
@@ -36,7 +36,8 @@
                                 <tr>
                                     <td width="15%"><b>Fecha Inicio:</b></td>
                                     <td width="30%">
-                                        <asp:TextBox ID="txtFechaInicio" runat="server" Width="200px" Enabled="False"></asp:TextBox>
+                                        <asp:TextBox ID="txtFechaInicio" runat="server" Width="200px" Enabled="False" 
+                                            CssClass="campo-field"></asp:TextBox>
                                     </td>
                                     <td width="20%"><b></b></td>
                                     <td width="35%">
@@ -45,7 +46,8 @@
                                 <tr>
                                     <td><b>Fecha Fin:</b></td>
                                     <td>
-                                        <asp:TextBox ID="txtFechaFin" runat="server" Width="200px" Enabled="False"></asp:TextBox>
+                                        <asp:TextBox ID="txtFechaFin" runat="server" Width="200px" Enabled="False" 
+                                            CssClass="campo-field"></asp:TextBox>
                                     </td>
                                     <td colspan="2">
                                         &nbsp;</td>
@@ -53,7 +55,8 @@
                                 <tr>
                                     <td><b>Imagen:</b></td>
                                     <td colspan="2">
-                                        <asp:FileUpload ID="FileUpload1" runat="server" Enabled="False" /></td>
+                                        <asp:FileUpload ID="FileUpload1" runat="server" Enabled="False" 
+                                            CssClass="campo-field" /></td>
                                     <td>
                                             
                                     </td>
@@ -77,7 +80,7 @@
                                 <tr>
                                     <td colspan="3" rowspan="4">
                                         <asp:TextBox ID="txtDescripcion" runat="server" Enabled="False" Height="90px" 
-                                            TextMode="MultiLine" Width="500px"></asp:TextBox>
+                                            TextMode="MultiLine" Width="500px" CssClass="campo-field"></asp:TextBox>
                                     </td>
                                     <td>&nbsp;</td>
                                 </tr>
@@ -136,12 +139,12 @@
             ValidationGroup="RegEventValidationGroup" CssClass="error" 
             DisplayMode="List" HeaderText="Error Ingrese los siguientes datos:" 
             ShowMessageBox="True" />
-    </div>
+    </div><br />
 
-    <div class="line"></div>   
+    <div class="line"></div><br />   
         
     <div class="article">
-        <table style="width: 100%;">
+        <table style="width: 100%;" class="ic_container">
             <tr>
                 <td align="center"><h3><b>Lista de Eventos</b></h3></td>
             </tr>
@@ -192,13 +195,6 @@
                             <asp:boundfield datafield="fechaRegistro" headertext="Fecha de Registro">
                             </asp:boundfield>
                         
-                            <asp:TemplateField HeaderText="Imagen">
-                                <ItemTemplate>
-                                    <asp:Image ID="Image3" runat="server" Height="84px" 
-                                        ImageUrl='<%# Eval("id", "img/eventos/{0}.jpg") %>' Width="84px" />
-                                </ItemTemplate>
-                            </asp:TemplateField>
-
                             <asp:CommandField ButtonType="Image" DeleteImageUrl="~/img/iconos/eli.png" 
                                 ShowDeleteButton="True" HeaderText="Eliminar" >
                             <HeaderStyle HorizontalAlign="Center" />

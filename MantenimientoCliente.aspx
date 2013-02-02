@@ -21,12 +21,12 @@
                                     <td colspan="4"><b>Datos del Contacto</b></td>
                                 </tr>
                                 <tr>
-                                    <td><b>Membresia:</b></td>
+                                    <td><b>Membresía:</b></td>
                                     <td>
                                         <asp:TextBox ID="txtMembresia" runat="server" Enabled="False" Width="200px"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                                        ControlToValidate="txtMembresia" ErrorMessage="Ingrese la membresia." 
-                                        ToolTip="La membresia es obligatoria." ValidationGroup="RegCliValidationGroup" 
+                                        ControlToValidate="txtMembresia" ErrorMessage="Ingrese la membresía." 
+                                        ToolTip="La membresía es obligatoria." ValidationGroup="RegCliValidationGroup" 
                                         CssClass="failureNotification"><img alt="" src="img/iconos/admiracion1.png" /></asp:RequiredFieldValidator>
                                     </td>
                                     <td><b>E-mail:</b></td>
@@ -265,7 +265,7 @@
                             <ItemStyle HorizontalAlign="Center" />
                             </asp:CommandField>
                             <asp:BoundField DataField="emailContacto" HeaderText="E-mail" />
-                            <asp:BoundField DataField="numeroExterior" HeaderText="Numero E." />
+                            <asp:BoundField DataField="numeroExterior" HeaderText="Número E." />
                             <asp:BoundField DataField="numeroInterior" DataFormatString="(No Data)" 
                                 HeaderText="Número I." />
                             <asp:BoundField DataField="municipio" HeaderText="Municipio" />
